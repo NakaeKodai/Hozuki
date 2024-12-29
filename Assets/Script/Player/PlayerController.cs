@@ -148,11 +148,10 @@ public class PlayerController : MonoBehaviour
     //アニメーションの制御
     public void MoveAnimator(float x, float y)
     {
-        if (player_x != 0 || player_y != 0)
+        if (playerDirection.x != 0 || playerDirection.y != 0)
         {
-            playerDirection = new Vector2(player_x, player_y);
-            animator.SetFloat("InputX", player_x);
-            animator.SetFloat("InputY", player_y);
+            animator.SetFloat("InputX", playerDirection.x);
+            animator.SetFloat("InputY", playerDirection.y);
         }
     }
 
