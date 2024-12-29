@@ -148,10 +148,10 @@ public class PlayerController : MonoBehaviour
     //アニメーションの制御
     public void MoveAnimator(float x, float y)
     {
-        if (playerDirection.x != 0 || playerDirection.y != 0)
+        if (x != 0 || y != 0)
         {
-            animator.SetFloat("InputX", playerDirection.x);
-            animator.SetFloat("InputY", playerDirection.y);
+            animator.SetFloat("InputX", x);
+            animator.SetFloat("InputY", y);
         }
     }
 
@@ -229,9 +229,9 @@ public class PlayerController : MonoBehaviour
         //瞬間移動の処理
         if (other.gameObject.CompareTag("Teleport"))
         {
+            canMove = false;
             trackPoint.transform.position = new Vector2(other.transform.position.x,other.transform.position.y);
             isTeleport = true;
-            canMove = false;
         }
     }
 
