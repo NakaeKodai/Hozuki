@@ -15,6 +15,21 @@ public class GameManager : MonoBehaviour
 {
     public PlayerInputAction playerInputAction; //inputSystemの変数
 
+    public enum ControllerType
+    {
+        Unknown, //接続無し、またはそれ以外
+        PlayStation,
+        Nintendo,
+        Xbox,
+        Logitech,
+        Generic
+    }
+
+    public static ControllerType controllerType = ControllerType.Unknown;
+
+    string[] controllerName;
+
+    //セーブ関連
     [SerializeField] Transform player; //プレイヤーの位置
     [SerializeField] SettingManager settingManager; //設定関連
     [SerializeField] Image lightImage; //明るさ調整のimage
@@ -23,7 +38,7 @@ public class GameManager : MonoBehaviour
     public bool isOtherMenu; //メニュー以外のUIをほらいているかどうか
     public bool isChaseTime; //敵に追われているか
 
-    public  int playerTalkState; //なんだっけ？ 多分今何行目の会話化の制御？
+    public  int playerTalkState; //なんだっけ？ 多分今何行目の会話かの制御？
     
     // Start is called before the first frame update
     void Start()
@@ -36,7 +51,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //後に消す
+        CheckController();
+
+
+        //セーブ、ロード等のテスト　後で消す
         if(Input.GetKeyDown(KeyCode.K))
         {
             Save();
@@ -112,6 +130,41 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    private void CheckController()
+    {
+        controllerName = Input.GetJoystickNames();
+
+        if (controllerName.Length == 0 || string.IsNullOrEmpty(controllerName[0]))
+        {
+            //Debug.Log("No controller detected.");
+            controllerType = ControllerType.Unknown;
+            return;
+        }
+
+        string controller = controllerName[0].ToLower(); //判定をしやすくする
+
+        if(controller.Contains("wireless controller") || controller.Contains("dualshock") || controller.Contains("dual sense"))
+        {
+            controllerType = ControllerType.PlayStation;
+        }
+        else if (controller.Contains("nintendo") || controller.Contains("switch"))
+        {
+            controllerType = ControllerType.Nintendo;
+        }
+        else if (controller.Contains("xbox"))
+        {
+            controllerType = ControllerType.Xbox;
+        }
+        else if (controller.Contains("logitech"))
+        {
+            controllerType = ControllerType.Logitech;
+        }
+        else
+        {
+            controllerType = ControllerType.Generic;
         }
     }
 

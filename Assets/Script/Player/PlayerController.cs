@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
     // [SerializeField] private GameObject takeItemwindow;
     private TalkTopic talkTopic;
     private ItemInfo itemInfo;
+    [SerializeField] private GameObject operation;
+    [SerializeField] private TextMeshProUGUI operationText;
 
     [SerializeField] LayerMask limitLayer; //壁判定
     [SerializeField] LayerMask talkLayer; //会話可能なオブジェクトの判定
@@ -173,6 +177,26 @@ public class PlayerController : MonoBehaviour
                 talkTopic = hitTalk.collider.gameObject.GetComponent<TalkTopic>();
             }
 
+            //操作説明
+            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+            {
+                operationText.text = "Space : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+            {
+                operationText.text = "● : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+            {
+                operationText.text = "A : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+            {
+                operationText.text = "B : 調べる";
+            }
+
+            operation.SetActive(true);
+
             //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
             if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && talkTopic != null)
             {
@@ -183,12 +207,14 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsMove", isMoving);
                 //textWindow.SetActive(true);
                 talkManager.Talk(talkTopic.topicList[0].topic, true);
+                operation.SetActive(false);
             }
         }
         else
         {
             //Rayが外れているかつ、TalkTopicに何かが入っていたらTalkTopicをnullにする
             if(talkTopic != null) talkTopic = null;
+            operation.SetActive(false);
         }
     }
 
@@ -207,6 +233,26 @@ public class PlayerController : MonoBehaviour
                 itemInfo = hitItem.collider.gameObject.GetComponent<ItemInfo>();
             }
 
+            //操作説明
+            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+            {
+                operationText.text = "Space : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+            {
+                operationText.text = "● : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+            {
+                operationText.text = "A : 調べる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+            {
+                operationText.text = "B : 調べる";
+            }
+
+            operation.SetActive(true);
+
             //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
             if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && itemInfo != null)
             {
@@ -220,6 +266,10 @@ public class PlayerController : MonoBehaviour
                 takeManager.TakeItem(pickUPitem);
                 itemInfo.DestroyObject();
             }
+        }
+        else
+        {
+            // operation.SetActive(false);
         }
     }
 
