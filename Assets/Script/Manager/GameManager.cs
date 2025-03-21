@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
     {
         controllerName = Input.GetJoystickNames();
 
-        Debug.Log(controllerName[0]);
+        // Debug.Log(controllerName[0]);
 
         if (controllerName.Length == 0 || string.IsNullOrEmpty(controllerName[0]))
         {
