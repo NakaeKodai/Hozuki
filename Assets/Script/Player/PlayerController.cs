@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     public TakeManager takeManager;
 
     //プレイヤーの変数
+    private Rigidbody2D rb;
     public float player_x, player_y; //プレイヤーの位置
     public float speed = 5f; //歩く速さ
     bool isMoving; //動いているかどうか アニメーションで使う
     public bool canMove; //移動可能かどうか
     public bool isTeleport; //瞬間移動したかどうか
+    public bool canCarry; //運搬可能なオブジェクトに触れているか
     //bool moveFloor; //確か移動可能なオブジェクトがあった時に使ってた気がする
     Vector2 playerDirection; //プレイヤーの向き
     Vector2 iventDirection; //イベントを調べる向き
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
     // [SerializeField] private GameObject textWindow;
     // [SerializeField] private GameObject takeItemwindow;
     private TalkTopic talkTopic;
-    private ItemInfo itemInfo;
+    // private ItemInfo itemInfo;
     [SerializeField] private GameObject operation;
     [SerializeField] private TextMeshProUGUI operationText;
 
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>(); // Rigidbody2D を取得
     }
 
     private void Awake()
@@ -57,85 +60,47 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
     void Update()
     {
-        //諸々のメニューが開いていなく、動ける状態の場合
         if (!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
         {
-            //プレイヤーの向きをInputSystemから入手
+            // プレイヤーの向きを取得
             playerDirection = gameManager.playerInputAction.Player.Move.ReadValue<Vector2>();
 
-            //もしInputSystemから得られた値が小さい場合、移動させない
-            if(playerDirection.magnitude < 0.5f) playerDirection = Vector2.zero;
-
-            //プレイヤーのxに向きのxを、プレイヤーのyに向きのyを代入
-            player_x = playerDirection.x;
-            player_y = playerDirection.y;
-
-            //もし向きが0ではないなら、イベントの向きにプレイヤーの向きを代入
-            if(playerDirection != Vector2.zero) iventDirection = playerDirection;
-
-            //上に壁があるかつ、上に移動使用とするなら、上方向の移動を0にする
-            RaycastHit2D hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.3f,limitLayer);
-            if(hitUp.collider != null && player_y > 0)
+            // 小さな入力を無視
+            if (playerDirection.magnitude < 0.5f) 
             {
-                //Debug.Log("上かべぇ");   
-                player_y = 0;
+                playerDirection = Vector2.zero;
+                isMoving = false;
+            }
+            else 
+            {
+                iventDirection = playerDirection;
+                isMoving = true;
             }
 
-            //下に壁があるかつ、下に移動使用とするなら、下方向の移動を0にする
-            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 1f,limitLayer);
-            if(hitDown.collider != null && player_y < 0)
-            {
-                //Debug.Log("下かべぇ");   
-                player_y = 0;
-            }
+            // 壁判定を行い、移動方向を調整
+            //CheckCollisions();
 
-            //左に壁があるかつ、左に移動使用とするなら、左方向の移動を0にする
-            RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f,limitLayer);
-            if(hitLeft.collider != null && player_x < 0)
-            {
-                //Debug.Log("左かべぇ");   
-                player_x = 0;
-            }
+            // isMoving の更新
+            // isMoving = playerDirection != Vector2.zero;
 
-            //右に壁があるかつ、右に移動使用とするなら、右方向の移動を0にする
-            RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f,limitLayer);
-            if(hitRight.collider != null && player_x > 0)
-            {
-                // Debug.Log("右かべぇ");   
-                player_x = 0;
-            }
-
-            //移動していないならisMovingをfalseにする それ以外はtrue
-            if(player_x == 0 && player_y == 0) isMoving = false;
-            else isMoving = true;
-
-            //player_x、player_yの向きに移動する
-            transform.Translate(
-            player_x * speed * Time.deltaTime,
-            player_y * speed * Time.deltaTime,
-            0.0f);
-
-            //アニメーターにプレイヤーの向きを教える
+            // アニメーションの更新
             MoveAnimator(playerDirection.x, playerDirection.y);
-            
-            TalkSearch(); //しゃべることができるか確認
-            ItemSearch(); //アイテムがあるか確認
+
+            TalkSearch();
+            ItemSearch();
+            CarryOperation();
         }
-        else if(!canMove) //もし動けないなら
+        else if (!canMove)
         {
-            //主に瞬間移動したときの一瞬動けなくする処理
-            if(timer <= freezeTime)
+            if (timer <= freezeTime)
             {
-                // Debug.Log("止まるぜ");
                 isMoving = false;
                 timer += Time.deltaTime;
             }
             else
             {
-                // Debug.Log("動くぜ");
                 timer = 0.0f;
                 canMove = true;
             }
@@ -145,8 +110,32 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
 
-        //動いているかどうかをアニメーターに教える
         animator.SetBool("IsMove", isMoving);
+    }
+
+    void FixedUpdate()
+    {
+        // Rigidbody2D に速度を適用
+        if (canMove)
+        {
+            rb.velocity = playerDirection * speed;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero; // 停止
+        }
+    }
+
+    void CheckCollisions()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.up, 0.3f, limitLayer) && playerDirection.y > 0)
+            playerDirection.y = 0;
+        if (Physics2D.Raycast(transform.position, Vector2.down, 1f, limitLayer) && playerDirection.y < 0)
+            playerDirection.y = 0;
+        if (Physics2D.Raycast(transform.position, Vector2.left, 0.5f, limitLayer) && playerDirection.x < 0)
+            playerDirection.x = 0;
+        if (Physics2D.Raycast(transform.position, Vector2.right, 0.5f, limitLayer) && playerDirection.x > 0)
+            playerDirection.x = 0;
     }
 
     //アニメーションの制御
@@ -222,17 +211,11 @@ public class PlayerController : MonoBehaviour
     void ItemSearch()
     {
         //iventDirectionの向きでRayを飛ばし、itemLayerを検知
-        RaycastHit2D hitItem = Physics2D.Raycast(transform.position, iventDirection, 1.0f, itemLayer);
-        if(hitItem.collider != null)
+        // RaycastHit2D hitItem = Physics2D.Raycast(transform.position, Vector2.zero, 1.0f, itemLayer);
+        Vector2 center = GetComponent<Collider2D>().bounds.center;
+        Collider2D hitItem = Physics2D.OverlapCircle(center, 0.8f, itemLayer);
+        if(hitItem!= null)
         {
-
-            //itemInfoがnullなら、Rayで入手したitemInfoを入手
-            //無駄にitemInfoに代入しないように制御している
-            if(itemInfo == null)
-            {
-                itemInfo = hitItem.collider.gameObject.GetComponent<ItemInfo>();
-            }
-
             //操作説明
             if(GameManager.controllerType == GameManager.ControllerType.Unknown)
             {
@@ -250,9 +233,10 @@ public class PlayerController : MonoBehaviour
             {
                 operationText.text = "B : 調べる";
             }
-
             operation.SetActive(true);
 
+            //itemInfoがnullなら、Rayで入手したitemInfoを入手
+            ItemInfo itemInfo = hitItem.gameObject.GetComponent<ItemInfo>();
             //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
             if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && itemInfo != null)
             {
@@ -273,6 +257,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void CarryOperation()
+    {
+        if (canCarry)
+        {
+            //操作説明
+            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+            {
+                operationText.text = "Space : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+            {
+                operationText.text = "● : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+            {
+                operationText.text = "A : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+            {
+                operationText.text = "B : 運ぶ";
+            }
+
+            operation.SetActive(true);
+        }
+        else 
+        {
+            //operation.SetActive(false);
+        }
+    }
+
     //当たり判定に当たったか(Collision)
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -285,19 +299,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //当たり判定に当たったか(trigger) 一応取っといている
+    //当たり判定に当たったか(trigger)
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // if (other.CompareTag("Clear"))
-        // {
-        //     if(!main.Killed) SceneManager.LoadScene("End");
-        //     else SceneManager.LoadScene("End2");
-        // }
+        if (other.gameObject.CompareTag("CarryObject"))
+        {
+            Debug.Log("運搬可能");
+            canCarry = true;
+        }
+    }
 
-        // if (other.CompareTag("Enemy"))
-        // {
-        //     SceneManager.LoadScene("End3");
-        // } 
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("CarryObject"))
+        {
+            Debug.Log("運搬不可");
+             canCarry = false;
+        }
     }
 }
 
