@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Rigidbody2D に速度を適用
-        if (canMove)
+        if (!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
         {
             rb.velocity = playerDirection * speed;
         }

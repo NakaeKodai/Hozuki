@@ -36,10 +36,12 @@ public class CarryObject : MonoBehaviour
         {
             if(gameManager.playerInputAction.Player.ActionANDDecision.IsPressed())
             {
+                //ボタン長押しで移動できるよ
                 moveDirection = gameManager.playerInputAction.Player.Move.ReadValue<Vector2>();
                 if (moveDirection.magnitude < 0.5f) moveDirection = Vector2.zero;
-                CheckCollisions();
-                rb.velocity = moveDirection * speed;
+                CheckCollisions(); //無くていいかも
+                
+                rb.velocity = moveDirection * speed; //ここが移動のコード
             }
         }else
         {

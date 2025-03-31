@@ -28,11 +28,14 @@ public class ItemManager : MonoBehaviour
             if(itemID == itemDataBase.itemList[i].itemID)
             {
                 pickUPitem = itemDataBase.itemList[i];
+                
+                //アイテムを入手済みにする
+                itemDataBase.itemList[i].haveStatus = ItemData.Status.HAVE;
                 break;
             }
         }
-        //アイテムを入手済みにする
-        itemDataBase.itemList[itemID].type = 1;
+        // //アイテムを入手済みにする
+        // itemDataBase.itemList[itemID].haveStatus = ItemData.Status.HAVE;
         return pickUPitem;
     }
 
