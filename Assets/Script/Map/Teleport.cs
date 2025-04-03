@@ -14,6 +14,8 @@ public class Teleport : MonoBehaviour
     [SerializeField] private Animator mapInfoAnimator;
     private bool isAnimation;
 
+    public string teleportSE;
+
     [Header("行先の座標と名前を書いて")]
     public float x;
     public float y;
@@ -49,6 +51,7 @@ public class Teleport : MonoBehaviour
         //プレイヤーに当たったら、プレイヤーを瞬間移動させる
         if (other.gameObject.CompareTag("Player"))
         {
+            if(teleportSE != "") SoundManager.instance.PlaySE(teleportSE);
             Debug.Log("オラッ！　移動！");
             other.gameObject.transform.position = new Vector3(x,y,0);
             playerController.MoveAnimator(animX,animY);
@@ -65,6 +68,7 @@ public class Teleport : MonoBehaviour
         //敵に当たったら、敵を瞬間移動させる
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if(teleportSE != "") SoundManager.instance.PlaySE(teleportSE);
             StartCoroutine(WaitAndTeleport(other));
         }
     }

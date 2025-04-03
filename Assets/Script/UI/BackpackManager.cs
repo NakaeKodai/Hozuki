@@ -28,6 +28,8 @@ public class BackpackManager : MonoBehaviour
     private Color onColor = new Color(1.0f,1.0f,1.0f,1.0f); //選択時の色(非透明)
     private Color offColor = new Color(1.0f,1.0f,1.0f,0.3f);//非選択時の色(微透明)
 
+    public string cursorSE = "カーソル移動";
+
     [Header("アイテム")]
 
     //アイテム関連
@@ -80,6 +82,7 @@ public class BackpackManager : MonoBehaviour
         //アイテムを開いていたら情報を、情報を開いていたらアイテムを開く
         if (gameManager.playerInputAction.UI.PageMoveRight.triggered || gameManager.playerInputAction.UI.PageMoveLeft.triggered)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             if(isItemView) isItemView = false;
             else isItemView = true;
         }
@@ -191,6 +194,7 @@ public class BackpackManager : MonoBehaviour
         //カーソル上移動
         if (gameManager.playerInputAction.UI.CursorMoveUp.triggered && content_Item.childCount > 1)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Item.SetActive(false);
             nowCursorNum_Item --;
             if(nowCursorNum_Item <= contentMoveControlUp_Item && contentTransform_Item.anchoredPosition.y != 0)
@@ -220,6 +224,7 @@ public class BackpackManager : MonoBehaviour
         //カーソル下移動
         if (gameManager.playerInputAction.UI.CursorMoveDown.triggered && content_Item.childCount > 1)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Item.SetActive(false);
             nowCursorNum_Item ++;
             if(nowCursorNum_Item >= contentMoveControlDown_Item && contentMoveControlDown_Item < content_Item.childCount - 1)
@@ -263,6 +268,7 @@ public class BackpackManager : MonoBehaviour
         //カーソル上移動
         if (gameManager.playerInputAction.UI.CursorMoveUp.triggered && content_Info.childCount > 1)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Info.SetActive(false);
             nowCursorNum_Info --;
             if(nowCursorNum_Info <= contentMoveControlUp_Info && contentTransform_Info.anchoredPosition.y != 0)
@@ -292,6 +298,7 @@ public class BackpackManager : MonoBehaviour
         //カーソル下移動
         if (gameManager.playerInputAction.UI.CursorMoveDown.triggered && content_Info.childCount > 1)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Info.SetActive(false);
             nowCursorNum_Info ++;
             if(nowCursorNum_Info >= contentMoveControlDown_Info && contentMoveControlDown_Info < content_Info.childCount - 1)

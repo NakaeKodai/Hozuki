@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
     private GameObject nowCursor;
     private GameObject nowCursorImage;
 
+    public string cursorSE = "カーソル移動";
+    public string decisionSE = "決定";
+
     [SerializeField] private GameObject menuWindow;
     [SerializeField] private GameObject explain;
     [SerializeField] private TextMeshProUGUI explainText;
@@ -97,6 +100,7 @@ public class UIManager : MonoBehaviour
         //カール上移動
         if (gameManager.playerInputAction.UI.CursorMoveUp.triggered)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
             nowCursorNum --;
             if (nowCursorNum < 0) nowCursorNum = menuWindow.transform.childCount - 1;
@@ -105,6 +109,7 @@ public class UIManager : MonoBehaviour
         //カーソル下移動
         if (gameManager.playerInputAction.UI.CursorMoveDown.triggered)
         {
+            SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
             nowCursorNum ++;
             if (nowCursorNum >= menuWindow.transform.childCount) nowCursorNum = 0;
@@ -145,6 +150,7 @@ public class UIManager : MonoBehaviour
         //メニューの選択
         if(gameManager.playerInputAction.UI.DecisionMenu.triggered)
         {
+            SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
             {
                 case 0:

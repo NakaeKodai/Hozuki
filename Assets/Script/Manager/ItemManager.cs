@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public static ItemManager instance;
+
     //アイテムのデータベース
     [SerializeField] private ItemDataBase itemDataBase;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject); // シーンが変わっても消えないようにする
     }
 
     //itemIDから、そのIDにあったアイテムをデータベースから探し、見つけたら情報を返す

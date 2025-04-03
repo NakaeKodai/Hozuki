@@ -10,8 +10,13 @@ public class TalkManager : MonoBehaviour
 
     public GameManager gameManager;
     public UIManager  uiManager;
+
     [SerializeField] private GameObject explain;
     [SerializeField] private TextMeshProUGUI talkText;
+
+    [SerializeField] private GameObject operation;
+    [SerializeField] private TextMeshProUGUI operationText;
+
     private List<string> talkTopic = new List<string>();
     private byte talkPage = 0;
     private bool talkEnd;
@@ -40,6 +45,8 @@ public class TalkManager : MonoBehaviour
         animator.SetTrigger("NewText");
         talkEnd = false;
 
+        operation.SetActive(true);
+
         //メニューからの呼び出しかどうか
         //メニューからなら終了時にメニューを表示させる
         this.calledPlayer = calledPlayer;
@@ -51,6 +58,28 @@ public class TalkManager : MonoBehaviour
     {
         if(!talkEnd)
         {
+            //操作説明
+            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+            {
+                if(talkPage + 1 != talkTopic.Count) operationText.text = "Space : 次へ";
+                else operationText.text = "Space : 閉じる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+            {
+                if(talkPage + 1 != talkTopic.Count) operationText.text = "● : 次へ";
+                else operationText.text = "● : 閉じる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+            {
+                if(talkPage + 1 != talkTopic.Count) operationText.text = "A : 次へ";
+                else operationText.text = "A : 閉じる";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+            {
+                if(talkPage + 1 != talkTopic.Count) operationText.text = "B : 次へ";
+                else operationText.text = "B : 閉じる";
+            }
+
             if(timer <= 0.2f) //連打対策
             {
                 timer += Time.deltaTime;
@@ -80,6 +109,7 @@ public class TalkManager : MonoBehaviour
             talkText.text = null;
             gameManager.isOtherMenu = false;
             gameObject.SetActive(false);
+            operation.SetActive(false);
             if(!calledPlayer)
             {
                 uiManager.isMenuWindow = true;

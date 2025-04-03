@@ -13,6 +13,8 @@ public class SaveData //セーブ関係の変数
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public PlayerInputAction playerInputAction; //inputSystemの変数
 
     public enum ControllerType
@@ -40,7 +42,15 @@ public class GameManager : MonoBehaviour
 
     public  int playerTalkState; //なんだっけ？ 多分今何行目の会話かの制御？
     
-    // Start is called before the first frame update
+    
+    void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject); // シーンが変わっても消えないようにする
+    }
+
     void Start()
     {
         Load();

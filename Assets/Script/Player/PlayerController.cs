@@ -62,10 +62,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
+        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
         {
             // プレイヤーの向きを取得
-            playerDirection = gameManager.playerInputAction.Player.Move.ReadValue<Vector2>();
+            playerDirection = GameManager.instance.playerInputAction.Player.Move.ReadValue<Vector2>();
 
             // 小さな入力を無視
             if (playerDirection.magnitude < 0.5f) 
@@ -88,9 +88,9 @@ public class PlayerController : MonoBehaviour
             // アニメーションの更新
             MoveAnimator(playerDirection.x, playerDirection.y);
 
-            TalkSearch();
-            ItemSearch();
-            CarryOperation();
+            // TalkSearch();
+            // ItemSearch();
+            // CarryOperation();
         }
         else if (!canMove)
         {
@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Rigidbody2D に速度を適用
-        if (!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
+        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
         {
             rb.velocity = playerDirection * speed;
         }
@@ -149,143 +149,148 @@ public class PlayerController : MonoBehaviour
     }
 
     //しゃべることができるかどうか探す
-    void TalkSearch()
-    {
-        //iventDirectionの向きでRayを飛ばし、talkLayerを検知
-        RaycastHit2D hitTalk = Physics2D.Raycast(transform.position, iventDirection, 1.0f, talkLayer);
+    // void TalkSearch()
+    // {
+    //     //iventDirectionの向きでRayを飛ばし、talkLayerを検知
+    //     RaycastHit2D hitTalk = Physics2D.Raycast(transform.position, iventDirection, 1.0f, talkLayer);
 
-        //Rayがhitしたら
-        if(hitTalk.collider != null)
-        {
-            //Debug.Log("お話可能");
+    //     //Rayがhitしたら
+    //     if(hitTalk.collider != null)
+    //     {
+    //         //Debug.Log("お話可能");
 
-            //talkTopicがnullなら、Rayで入手したTalkTopicを入手
-            //無駄にtalkTopicに代入しないように制御している
-            if(talkTopic == null)
-            {
-                talkTopic = hitTalk.collider.gameObject.GetComponent<TalkTopic>();
-            }
+    //         //talkTopicがnullなら、Rayで入手したTalkTopicを入手
+    //         //無駄にtalkTopicに代入しないように制御している
+    //         if(talkTopic == null)
+    //         {
+    //             talkTopic = hitTalk.collider.gameObject.GetComponent<TalkTopic>();
+    //         }
 
-            //操作説明
-            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
-            {
-                operationText.text = "Space : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
-            {
-                operationText.text = "● : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
-            {
-                operationText.text = "A : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
-            {
-                operationText.text = "B : 調べる";
-            }
+    //         //操作説明
+    //         if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+    //         {
+    //             operationText.text = "Space : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+    //         {
+    //             operationText.text = "● : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+    //         {
+    //             operationText.text = "A : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+    //         {
+    //             operationText.text = "B : 調べる";
+    //         }
 
-            operation.SetActive(true);
+    //         operation.SetActive(true);
 
-            //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
-            if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && talkTopic != null)
-            {
-                //動けなくして、UIを出現させ、話す
+    //         //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
+    //         if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && talkTopic != null)
+    //         {
+    //             //動けなくして、UIを出現させ、話す
 
-                //Debug.Log("おなはしー");
-                isMoving = false;
-                animator.SetBool("IsMove", isMoving);
-                //textWindow.SetActive(true);
-                talkManager.Talk(talkTopic.topicList[0].topic, true);
-                operation.SetActive(false);
-            }
-        }
-        else
-        {
-            //Rayが外れているかつ、TalkTopicに何かが入っていたらTalkTopicをnullにする
-            if(talkTopic != null) talkTopic = null;
-            operation.SetActive(false);
-        }
-    }
+    //             //Debug.Log("おなはしー");
+    //             isMoving = false;
+    //             animator.SetBool("IsMove", isMoving);
+    //             //textWindow.SetActive(true);
+    //             talkManager.Talk(talkTopic.topicList[0].topic, true);
+    //             operation.SetActive(false);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         //Rayが外れているかつ、TalkTopicに何かが入っていたらTalkTopicをnullにする
+    //         if(talkTopic != null) talkTopic = null;
+    //         operation.SetActive(false);
+    //     }
+    // }
 
     //アイテムを探す
-    void ItemSearch()
-    {
-        //iventDirectionの向きでRayを飛ばし、itemLayerを検知
-        // RaycastHit2D hitItem = Physics2D.Raycast(transform.position, Vector2.zero, 1.0f, itemLayer);
-        Vector2 center = GetComponent<Collider2D>().bounds.center;
-        Collider2D hitItem = Physics2D.OverlapCircle(center, 0.8f, itemLayer);
-        if(hitItem!= null)
-        {
-            //操作説明
-            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
-            {
-                operationText.text = "Space : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
-            {
-                operationText.text = "● : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
-            {
-                operationText.text = "A : 調べる";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
-            {
-                operationText.text = "B : 調べる";
-            }
-            operation.SetActive(true);
+    // void ItemSearch()
+    // {
+    //     //iventDirectionの向きでRayを飛ばし、itemLayerを検知
+    //     // RaycastHit2D hitItem = Physics2D.Raycast(transform.position, Vector2.zero, 1.0f, itemLayer);
+    //     Vector2 center = GetComponent<Collider2D>().bounds.center;
+    //     Collider2D hitItem = Physics2D.OverlapCircle(center, 0.8f, itemLayer);
+    //     if(hitItem!= null)
+    //     {
+    //         //操作説明
+    //         if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+    //         {
+    //             operationText.text = "Space : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+    //         {
+    //             operationText.text = "● : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+    //         {
+    //             operationText.text = "A : 調べる";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+    //         {
+    //             operationText.text = "B : 調べる";
+    //         }
+    //         operation.SetActive(true);
 
-            //itemInfoがnullなら、Rayで入手したitemInfoを入手
-            ItemInfo itemInfo = hitItem.gameObject.GetComponent<ItemInfo>();
-            //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
-            if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && itemInfo != null)
-            {
-                //itemIDからアイテムを探し、itemdataにpicUPitemに代入
-                //UIを出して入手したことを表示させる
-                //その後に入手したアイテムをデストロイする
+    //         //itemInfoがnullなら、Rayで入手したitemInfoを入手
+    //         ItemInfo itemInfo = hitItem.gameObject.GetComponent<ItemInfo>();
+    //         //talkTopicがnullじゃないかつ、ボタンが押されたら調べる
+    //         if(gameManager.playerInputAction.Player.ActionANDDecision.triggered && itemInfo != null)
+    //         {
+    //             //itemIDからアイテムを探し、itemdataにpicUPitemに代入
+    //             //UIを出して入手したことを表示させる
+    //             //その後に入手したアイテムをデストロイする
 
-                ItemData pickUPitem = itemManager.PickUp(itemInfo.itemID);
-                Debug.Log(pickUPitem.itemID);
-                //takeItemwindow.SetActive(true);
-                takeManager.TakeItem(pickUPitem);
-                itemInfo.DestroyObject();
-            }
-        }
-        else
-        {
-            // operation.SetActive(false);
-        }
-    }
+    //             ItemData pickUPitem = itemManager.PickUp(itemInfo.itemID);
+    //             Debug.Log(pickUPitem.itemID);
+    //             //takeItemwindow.SetActive(true);
+    //             takeManager.TakeItem(pickUPitem);
+    //             itemInfo.DestroyObject();
+    //         }
+    //     }
+    //     else
+    //     {
+    //         // operation.SetActive(false);
+    //     }
+    // }
 
-    void CarryOperation()
-    {
-        if (canCarry)
-        {
-            //操作説明
-            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
-            {
-                operationText.text = "Space : 運ぶ";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
-            {
-                operationText.text = "● : 運ぶ";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
-            {
-                operationText.text = "A : 運ぶ";
-            }
-            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
-            {
-                operationText.text = "B : 運ぶ";
-            }
+    // void PasswordLockSerch()
+    // {
+        
+    // }
 
-            operation.SetActive(true);
-        }
-        else 
-        {
-            //operation.SetActive(false);
-        }
-    }
+    // void CarryOperation()
+    // {
+    //     if (canCarry)
+    //     {
+    //         //操作説明
+    //         if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+    //         {
+    //             operationText.text = "Space : 運ぶ";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+    //         {
+    //             operationText.text = "● : 運ぶ";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+    //         {
+    //             operationText.text = "A : 運ぶ";
+    //         }
+    //         else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+    //         {
+    //             operationText.text = "B : 運ぶ";
+    //         }
+
+    //         operation.SetActive(true);
+    //     }
+    //     else 
+    //     {
+    //         //operation.SetActive(false);
+    //     }
+    // }
 
     //当たり判定に当たったか(Collision)
     private void OnCollisionEnter2D(Collision2D other)
