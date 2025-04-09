@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
             // TalkSearch();
             // ItemSearch();
-            // CarryOperation();
+            CarryOperation();
         }
         else if (!canMove)
         {
@@ -262,35 +262,35 @@ public class PlayerController : MonoBehaviour
         
     // }
 
-    // void CarryOperation()
-    // {
-    //     if (canCarry)
-    //     {
-    //         //操作説明
-    //         if(GameManager.controllerType == GameManager.ControllerType.Unknown)
-    //         {
-    //             operationText.text = "Space : 運ぶ";
-    //         }
-    //         else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
-    //         {
-    //             operationText.text = "● : 運ぶ";
-    //         }
-    //         else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
-    //         {
-    //             operationText.text = "A : 運ぶ";
-    //         }
-    //         else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
-    //         {
-    //             operationText.text = "B : 運ぶ";
-    //         }
+    void CarryOperation()
+    {
+        if (canCarry)
+        {
+            //操作説明
+            if(GameManager.controllerType == GameManager.ControllerType.Unknown)
+            {
+                operationText.text = "Space : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
+            {
+                operationText.text = "● : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
+            {
+                operationText.text = "A : 運ぶ";
+            }
+            else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
+            {
+                operationText.text = "B : 運ぶ";
+            }
 
-    //         operation.SetActive(true);
-    //     }
-    //     else 
-    //     {
-    //         //operation.SetActive(false);
-    //     }
-    // }
+            operation.SetActive(true);
+        }
+        else 
+        {
+            //operation.SetActive(false);
+        }
+    }
 
     //当たり判定に当たったか(Collision)
     private void OnCollisionEnter2D(Collision2D other)
