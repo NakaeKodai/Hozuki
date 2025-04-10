@@ -7,12 +7,17 @@ using TMPro;
 public class PasswordLock : MonoBehaviour
 {
     
-    private bool inPlayer, isPlay;
+    private bool inPlayer, isPlay, isFirst = true;
     
     public string cursorSE = "カーソル移動";
     public string openSE = "鍵を開ける";
 
+
+    //本体のオブジェクトの変数
     [SerializeField] private GameObject lockedimage;
+    [SerializeField] private GameObject password_Prefab;
+
+    //カーソル移動の変数
     private int nowCursorNum = 0;
     private int beforeCursorNum = 1; //nowCursorNumとは違う数値
     private TextMeshProUGUI numberText;
@@ -79,6 +84,7 @@ public class PasswordLock : MonoBehaviour
 
                 if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
                 {
+                    ResetPassword();
                     lockedimage.SetActive(true);
                     // operation.SetActive(false);
                     GameManager.instance.isOtherMenu = true;
@@ -152,7 +158,7 @@ public class PasswordLock : MonoBehaviour
                     SoundManager.instance.PlaySE(cursorSE);
                     nowCursorImage.SetActive(false);
                     nowCursorNum--;
-                    if (nowCursorNum < 0) nowCursorNum = lockedimage.transform.childCount - 1;
+                    if (nowCursorNum < 0) nowCursorNum = answerNumber.Count - 1;
                 }
 
                 //カーソル右移動
@@ -161,7 +167,7 @@ public class PasswordLock : MonoBehaviour
                     SoundManager.instance.PlaySE(cursorSE);
                     nowCursorImage.SetActive(false);
                     nowCursorNum++;
-                    if (nowCursorNum >= lockedimage.transform.childCount) nowCursorNum = 0;
+                    if (nowCursorNum >= answerNumber.Count) nowCursorNum = 0;
                 }
             }
         }
@@ -171,15 +177,31 @@ public class PasswordLock : MonoBehaviour
     private void CheckPassword()
     {
         int count = 0;
-        for(int i  = 0;i < lockedimage.transform.childCount;i++)
+        for(int i  = 0;i < answerNumber.Count;i++)
         {
             if(passwordNumber[i] == answerNumber[i]) count++;
             else break;
         }
-        if(count == lockedimage.transform.childCount)
+        if(count == answerNumber.Count)
         {
             SoundManager.instance.PlaySE(openSE);
             Debug.Log("当たり");
+        }
+    }
+
+    private void ResetPassword()
+    {
+        nowCursorNum = 0;
+        beforeCursorNum = 1;
+        foreach (Transform child in lockedimage.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for(int i = 0;i < answerNumber.Count;i++)
+        {
+            Instantiate(password_Prefab, lockedimage.transform);
+            passwordNumber[i] = 0;
         }
     }
 
