@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove; //移動可能かどうか
     public bool isTeleport; //瞬間移動したかどうか
     public bool canCarry; //運搬可能なオブジェクトに触れているか
+    public bool canPush;//押し出し可能なオブジェクトにふれているか
     //bool moveFloor; //確か移動可能なオブジェクトがあった時に使ってた気がする
     Vector2 playerDirection; //プレイヤーの向き
     Vector2 iventDirection; //イベントを調べる向き
@@ -311,6 +312,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("運搬可能");
             canCarry = true;
+        }else if(other.gameObject.CompareTag("PushObject"))
+        {
+            Debug.Log("押し出し可能");
+            canPush = true;
         }
     }
 
@@ -321,6 +326,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("運搬不可");
              canCarry = false;
+        }else if(other.gameObject.CompareTag("PushObject"))
+        {
+            Debug.Log("押し出し不可能");
+            canPush = false;
         }
     }
 }
