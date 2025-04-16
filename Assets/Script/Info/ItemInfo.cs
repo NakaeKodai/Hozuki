@@ -78,6 +78,7 @@ public class ItemInfo : MonoBehaviour
         }
     }
 
+    //インスペクター上でアイテム名が分かりやすくなるように
     private void OnValidate()
     {
         if (itemDatabase == null)

@@ -7,7 +7,7 @@ using TMPro;
 public class PasswordLock : MonoBehaviour
 {
     
-    private bool inPlayer, isPlay, isFirst = true;
+    private bool isClear, inPlayer, isPlay, isFirst = true;
     
     public string cursorSE = "カーソル移動";
     public string openSE = "鍵を開ける";
@@ -33,21 +33,9 @@ public class PasswordLock : MonoBehaviour
     [SerializeField]
     private List<int> passwordNumber = new List<int>();
 
-    // [ContextMenu("Sync With Children")]
-    // private void SyncWithChildren()
-    // {
-    //     int childCount = lockedimage.transform.childCount;
-    //     while (answerNumber.Count < childCount)
-    //     {
-    //         answerNumber.Add(0);
-    //         passwordNumber.Add(0);
-    //     }
-    //     while (answerNumber.Count > childCount)
-    //     {
-    //         answerNumber.RemoveAt(answerNumber.Count - 1);
-    //         passwordNumber.RemoveAt(passwordNumber.Count - 1);
-    //     }
-    // }
+    
+    [Header("報酬のスクリプトに位置をこのスクリプトより上にしてね")]
+    public MonoBehaviour reward;
 
 
     void Start()
@@ -58,7 +46,7 @@ public class PasswordLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inPlayer)
+        if(inPlayer && !isClear)
         {
             if(!isPlay)
             {
@@ -186,6 +174,15 @@ public class PasswordLock : MonoBehaviour
         {
             SoundManager.instance.PlaySE(openSE);
             Debug.Log("当たり");
+            if(reward is IRewards action)
+            {
+                GameManager.instance.isOtherMenu = false;
+                operation.SetActive(false);
+                lockedimage.SetActive(false);
+                Debug.Log("報酬だよ");
+                action.Reward();
+                isClear =  true;
+            }
         }
     }
 
