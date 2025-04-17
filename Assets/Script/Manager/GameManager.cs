@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.Playables;
 
 [System.Serializable]
 public class SaveData //セーブ関係の変数
@@ -40,6 +41,9 @@ public class GameManager : MonoBehaviour
     public bool isOtherMenu; //メニュー以外のUIをほらいているかどうか
     public bool isChaseTime; //敵に追われているか
 
+    public PlayableDirector director;
+    public bool isIvent;
+
     public  int playerTalkState; //なんだっけ？ 多分今何行目の会話かの制御？
     
     
@@ -62,6 +66,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckController();
+        CheckIvent();
 
 
         //セーブ、ロード等のテスト　後で消す
@@ -178,6 +183,15 @@ public class GameManager : MonoBehaviour
         {
             controllerType = ControllerType.Generic;
         }
+    }
+
+    private void CheckIvent()
+    {
+        if(director.state != PlayState.Playing && director.time == 0)
+        {
+            isIvent = false;
+        }
+        else isIvent = true;
     }
 
     // private void OnApplicationQuit()

@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ControlTimeline : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayableDirector director;
+    private bool waitingForInput = false;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered && waitingForInput)
+        {
+            director.Resume();
+            waitingForInput = false;
+        }
+    }
+
+    public void puase()
+    {
+        director.Pause();
+        waitingForInput = true;
     }
 }

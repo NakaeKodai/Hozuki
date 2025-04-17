@@ -63,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
+        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu  
+        && !GameManager.instance.isIvent && canMove)
         {
             // プレイヤーの向きを取得
             playerDirection = GameManager.instance.playerInputAction.Player.Move.ReadValue<Vector2>();
@@ -117,7 +118,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Rigidbody2D に速度を適用
-        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
+        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu 
+        && !GameManager.instance.isIvent&& canMove)
         {
             rb.velocity = playerDirection * speed;
         }
