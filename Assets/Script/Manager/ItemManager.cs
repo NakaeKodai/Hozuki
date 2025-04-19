@@ -52,4 +52,64 @@ public class ItemManager : MonoBehaviour
         }
         return itemInfoText;
     }
+
+    //アイテムの説明からアイテムの種類を返す（カーソルでアイテムの名前を取得してないっぽいので新しく作るのごちゃごちゃしそうなので）
+    public string SearchTypeText(string itemInfo)
+    {
+        string itemTypeText = itemDataBase.itemList[0].itemInfo;
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(itemInfo == itemDataBase.itemList[i].itemInfo)
+            {
+                itemTypeText = itemDataBase.itemList[i].useType.ToString();
+                break;
+            }
+        }
+        return itemTypeText;
+    }
+
+    //アイテムの説明から表示する画像を返す（カーソルでアイテムの名前を取得してないっぽいので新しく作るのごちゃごちゃしそうなので）
+    public Sprite SearchShowImage(string itemInfo)
+    {
+        Sprite itemShowImage = itemDataBase.itemList[0].showImage;
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(itemInfo == itemDataBase.itemList[i].itemInfo)
+            {
+                itemShowImage = itemDataBase.itemList[i].showImage;
+                break;
+            }
+        }
+        return itemShowImage;
+    }
+
+    //アイテムの説明からアイテムのIDを返す（カーソルでアイテムの名前を取得してないっぽいので新しく作るのごちゃごちゃしそうなので）
+    public int SearchID(string itemInfo)
+    {
+        int itemID = itemDataBase.itemList[0].itemID;
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(itemInfo == itemDataBase.itemList[i].itemInfo)
+            {
+                itemID = itemDataBase.itemList[i].itemID;
+                break;
+            }
+        }
+        return itemID;
+    }
+
+    //アイテムの名前からアイテムのIDを返す（カーソルでアイテムの名前を取得してないっぽいので新しく作るのごちゃごちゃしそうなので）
+    public int SearchIDForName(string itemName)
+    {
+        int itemID = itemDataBase.itemList[0].itemID;
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(itemName == itemDataBase.itemList[i].itemName)
+            {
+                itemID = itemDataBase.itemList[i].itemID;
+                break;
+            }
+        }
+        return itemID;
+    }
 }

@@ -14,6 +14,8 @@ public class BackpackManager : MonoBehaviour
     public GameObject itemPrefab;
     public GameObject nothingText;
 
+    public ItemDataBase itemDataBase;
+
     //持ち物欄を見ているか、情報欄を見ているか
     private bool isItemView = true;
 
@@ -63,6 +65,25 @@ public class BackpackManager : MonoBehaviour
     private int contentMoveControlUp_Info = 0;
     private int contentMoveControlDown_Info = 6;
 
+    [Header("アイテム使用")]
+
+    //アイテム使用関連
+    public GameObject selectUse;//使用確認ウインドウ
+    public GameObject useCursor;//使かう
+    public GameObject cancelCursor;//やめる
+    private string useType;//カーソルのアイテムの種類
+    private bool selectUseFlug = false;//使用確認ウインドウを開いてるか
+    private bool selectUseConfirmation = true;//使用しますかのtrue or false
+
+    [Header("画像表示")]
+    public GameObject showImageObject;//表示画像のオブジェクト
+    public GameObject showImage;//表示する画像
+    private bool showImageFlug;//画像を表示中かを判定する
+
+    [Header("アイテム入手")]
+    public TakeManager takeManager;//アイテム入手のやつ
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,14 +94,39 @@ public class BackpackManager : MonoBehaviour
     void Update()
     {
         //メニューを再び開く、または戻るボタンを押すと、BackPackメニューが閉じて、メニューが開く
-        if (gameManager.playerInputAction.UI.OpenMenu.triggered || gameManager.playerInputAction.UI.CloseMenu.triggered)
+        if (gameManager.playerInputAction.UI.OpenMenu.triggered)
         {
+            selectUse.SetActive(false);
+            selectUseFlug = false;
+            showImageObject.SetActive(false);
+            showImageFlug = false;
             gameObject.SetActive(false);
             uiManager.OpenMenuWindow();
         }
 
+        //もどるボタンの処理
+        if(gameManager.playerInputAction.UI.CloseMenu.triggered)
+        {
+            if(selectUseFlug)//アイテム使用確認ウインドウ
+            {
+                selectUse.SetActive(false);
+                selectUseFlug = false;
+                selectUseConfirmation = true;
+            }
+            else if(showImageFlug)//アイテムの画像表示
+            {
+                showImageObject.SetActive(false);
+                showImageFlug = false;
+            }
+            else//メニュー閉じる（上のコピーして）
+            {
+                gameObject.SetActive(false);
+                uiManager.OpenMenuWindow();
+            }
+        }
+
         //アイテムを開いていたら情報を、情報を開いていたらアイテムを開く
-        if (gameManager.playerInputAction.UI.PageMoveRight.triggered || gameManager.playerInputAction.UI.PageMoveLeft.triggered)
+        if ((gameManager.playerInputAction.UI.PageMoveRight.triggered || gameManager.playerInputAction.UI.PageMoveLeft.triggered) && !selectUseFlug && !showImageFlug)
         {
             SoundManager.instance.PlaySE(cursorSE);
             if(isItemView) isItemView = false;
@@ -107,7 +153,59 @@ public class BackpackManager : MonoBehaviour
                 nothingText.SetActive(false);
                 infoImage_Item.SetActive(true);
                 infoText_Item.SetActive(true);
-                SelectControlItem();
+
+                if(selectUseFlug)//アイテム使用確認ウインドウを開いている
+                {
+                    selectUseCursor();//カーソル移動
+
+                    //決定ボタンで選択
+                    if(gameManager.playerInputAction.UI.DecisionMenu.triggered)
+                    {
+                        if(selectUseConfirmation)//使う
+                        {
+                            // Debug.Log(itemTextInfo_Item.text);
+                            useType = itemManager.SearchTypeText(itemTextInfo_Item.text);
+                            // Debug.Log(useType);
+                            if(useType == "NOUSE")
+                            {
+                                Debug.Log("フラグ用アイテム");
+                            }
+                            else if(useType == "SHOWIMAGE")
+                            {
+                                Debug.Log("画像表示");
+                                showItemImage();
+                            }
+                            else if(useType == "GETITEM")
+                            {
+                                Debug.Log("アイテムゲット");
+                                getItem();
+                            }
+                            else
+                            {
+                                Debug.Log("その他or正しく取得できてない");
+                            } 
+                        }
+                        else//やめる
+                        {
+                            selectUse.SetActive(false);
+                            selectUseFlug = false;
+                            selectUseConfirmation = true;
+                        }
+                    }
+                    
+                }
+                else if(!showImageFlug)//開いていない(普通のアイテム選択画面)
+                {
+                    SelectControlItem();
+                    //アイテム使用確認ウインドウを開く
+                    if(gameManager.playerInputAction.UI.DecisionMenu.triggered){
+                        selectUse.SetActive(true);
+                        selectUseFlug = true;
+                        useCursor.SetActive(true);
+                        selectUseConfirmation = true;
+                    }
+                }
+                
             }
         }
         else //情報欄の処理
@@ -189,6 +287,7 @@ public class BackpackManager : MonoBehaviour
             nowCursorImage_Item = nowCursor_Item.transform.GetChild(2).gameObject;
             beforeCursorNum_Item = nowCursorNum_Item;
             nowCursorImage_Item.SetActive(true);
+
         }
 
         //カーソル上移動
@@ -319,6 +418,63 @@ public class BackpackManager : MonoBehaviour
                 contentMoveControlDown_Info = 6;
             }
         }
+    }
+
+    //アイテム使用確認ウインドウのカーソル移動
+    private void selectUseCursor()
+    {
+        //カーソル移動（上下どっちも同じ）
+        if (gameManager.playerInputAction.UI.CursorMoveUp.triggered || gameManager.playerInputAction.UI.CursorMoveDown.triggered)
+        {
+            SoundManager.instance.PlaySE(cursorSE);
+            if(selectUseConfirmation)
+            {
+                selectUseConfirmation = false;
+                useCursor.SetActive(false);
+                cancelCursor.SetActive(true);
+            }
+            else
+            {
+                selectUseConfirmation = true;
+                useCursor.SetActive(true);
+                cancelCursor.SetActive(false);
+            }
+        }
+
+    }
+
+    //アイテムの画像表示
+    private void showItemImage()
+    {
+        //アイテム使用確認ウインドウ閉じる
+        selectUse.SetActive(false);
+        selectUseFlug = false;
+        selectUseConfirmation = true;
+
+        // 画像表示
+        showImageFlug = true;
+        Image img = showImage.GetComponent<Image>();
+        img.sprite = itemManager.SearchShowImage(itemTextInfo_Item.text);
+        showImageObject.SetActive(true);
+    }
+
+    //アイテム入手
+    private void getItem()
+    {
+        //ウインドウを閉じる
+        selectUse.SetActive(false);
+        selectUseFlug = false;
+        showImageObject.SetActive(false);
+        showImageFlug = false;
+        gameObject.SetActive(false);
+        // uiManager.OpenMenuWindow();
+
+        //アイテムの入手
+        int useItemID = itemManager.SearchID(itemTextInfo_Item.text);
+        string getItemName = itemDataBase.itemList[useItemID].getItemName;
+        int getItemID = itemManager.SearchIDForName(getItemName);
+        itemDataBase.itemList[useItemID].haveStatus = ItemData.Status.WASHAVE;
+        takeManager.TakeItem(ItemManager.instance.PickUp(getItemID));
     }
 
     //今見ている欄を分かりやすくするために色を変更する処理

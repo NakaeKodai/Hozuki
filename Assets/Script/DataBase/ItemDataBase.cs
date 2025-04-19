@@ -24,6 +24,21 @@ public class ItemData
     }
 
     public Status haveStatus;
+
+    public enum UseType
+    {
+        NOUSE,//使用不可（フラグ用）
+        SHOWIMAGE,//画像表示
+        GETITEM//アイテム入手
+    }
+    [Header("アイテムの種類")]
+    public UseType useType;
+
     [Header("アイテムの説明を書いてね")]
     public string itemInfo;
+
+    [Header("アイテム使用に関するやつ（いらないの空白でおけ）")]
+    public Sprite showImage;//画像表示のための画像
+    public string getItemName;//入手できるアイテムのID
+
 }
