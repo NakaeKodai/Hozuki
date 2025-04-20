@@ -18,14 +18,21 @@ public class TitleManager : MonoBehaviour
 
     public TitleStatus status;
 
-    public GameObject startPanel;
-    public Animator startPanelAnimator;
+    public Animator logoAnimation;
 
-    public GameObject explain;
-    public TextMeshProUGUI explainText;
+    public GameObject startPanel;
+
+    public GameObject startExplain;
+    public TextMeshProUGUI startExplainText;
+
+    public GameObject charaExplain;
+    public TextMeshProUGUI charaExplainText;
 
     public GameObject charaSelectPanel;
     public Animator charaPanelAnimator;
+
+    public GameObject blackoutPanel;
+    public Animator blackoutAnimator;
 
     private int nowCursorNum = 0;
     private int beforeCursorNum = 1; //nowCursorNumとは違う数値
@@ -51,6 +58,10 @@ public class TitleManager : MonoBehaviour
         {
             StartControl();
         }
+        else  if(status == TitleStatus.CHARASELECT)
+        {
+            CharaSelectControl();
+        }
         
     }
 
@@ -62,7 +73,7 @@ public class TitleManager : MonoBehaviour
             nowCursorImage = nowCursor.transform.GetChild(0).gameObject;
             beforeCursorNum = nowCursorNum;
             nowCursorImage.SetActive(true);
-            SetExplainText();
+            SetStartExplainText();
         }
 
         //カール上移動
@@ -93,8 +104,9 @@ public class TitleManager : MonoBehaviour
                     Debug.Log("はじめる");
                     status = TitleStatus.CHARASELECT;
                     startPanel.SetActive(false);
-                    explain.SetActive(false);
+                    startExplain.SetActive(false);
                     charaSelectPanel.SetActive(true);
+                    charaExplain.SetActive(true);
                     charaPanelAnimator.SetTrigger("FadeIn");
                     beforeCursorNum = -1;
                     break;
@@ -104,31 +116,116 @@ public class TitleManager : MonoBehaviour
                 case 2:
                     Debug.Log("設定");
                     break;
-                // case 4:
-                //     Debug.Log("セーブ");
-                //     gameManager.Save();
-                //     break;
-                // case 5:
-                //     Debug.Log("タイトル");
-                //     break;
+
             }
         }
     }
 
     //メニューの説明
-    public void SetExplainText()
+    void SetStartExplainText()
     {
         switch(nowCursorNum)
             {
                 case 0:
-                    explainText.text = "ゲームを開始します";
+                    startExplainText.text = "ゲームを開始します";
                     break;
                 case 1:
-                    explainText.text = "デモ版のため実行できません";
+                    startExplainText.text = "デモ版のため実行できません";
                     break;
                 case 2:
-                    explainText.text = "デモ版のため実行できません";
+                    startExplainText.text = "デモ版のため実行できません";
                     break;
             }
+    }
+
+    void CharaSelectControl()
+    {
+        if(beforeCursorNum != nowCursorNum)
+        {
+            nowCursor = charaSelectPanel.transform.GetChild(nowCursorNum).gameObject;
+            nowCursorImage = nowCursor.transform.GetChild(0).gameObject;
+            beforeCursorNum = nowCursorNum;
+            nowCursorImage.SetActive(true);
+            SetCharaExplainText();
+        }
+
+        //カール上移動
+        if (playerInputAction.UI.CursorMoveUp.triggered)
+        {
+            SoundManager.instance.PlaySE(cursorSE);
+            nowCursorImage.SetActive(false);
+            nowCursorNum --;
+            if (nowCursorNum < 0) nowCursorNum = charaSelectPanel.transform.childCount - 1;
+        }
+
+        //カーソル下移動
+        if (playerInputAction.UI.CursorMoveDown.triggered)
+        {
+            SoundManager.instance.PlaySE(cursorSE);
+            nowCursorImage.SetActive(false);
+            nowCursorNum ++;
+            if (nowCursorNum >= charaSelectPanel.transform.childCount) nowCursorNum = 0;
+        }
+
+        //メニューの選択
+        if(playerInputAction.UI.DecisionMenu.triggered)
+        {
+            SoundManager.instance.PlaySE(decisionSE);
+            switch(nowCursorNum)
+            {
+                case 0:
+                    Debug.Log("走力ちゃん");
+                    StartCoroutine(ChengeScene("Runner"));
+                    break;
+                case 1:
+                    Debug.Log("知力くん");
+                    StartCoroutine(ChengeScene("Intelli"));
+                    break;
+                case 2:
+                    Debug.Log("筋力くん");
+                    StartCoroutine(ChengeScene("Power"));
+                    break;
+                case 3:
+                    Debug.Log("戻る");
+                    status = TitleStatus.START;
+                    charaSelectPanel.SetActive(false);
+                    charaExplain.SetActive(false);
+                    startPanel.SetActive(true);
+                    startExplain.SetActive(true);
+                    logoAnimation.SetTrigger("FadeIn");
+                    nowCursorImage.SetActive(false);
+                    nowCursorNum = 0;
+                    beforeCursorNum = -1;
+                    break;
+
+            }
+        }
+    }
+
+    void SetCharaExplainText()
+    {
+        switch(nowCursorNum)
+            {
+                case 0:
+                    charaExplainText.text = "敵とのチェイスが主なゲーム内容となっています";
+                    break;
+                case 1:
+                    charaExplainText.text = "ナゾ解きが主なゲーム内容となっています";
+                    break;
+                case 2:
+                    charaExplainText.text = "筋力くんが主なゲーム内容となっています";
+                    break;
+                case 3:
+                    charaExplainText.text = "タイトル画面にもどります";
+                    break;
+            }
+    }
+
+    IEnumerator ChengeScene(string sceneName)
+    {
+        blackoutPanel.SetActive(true);
+        blackoutAnimator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(sceneName);
     }
 }
