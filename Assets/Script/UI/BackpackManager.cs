@@ -71,6 +71,7 @@ public class BackpackManager : MonoBehaviour
     public GameObject selectUse;//使用確認ウインドウ
     public GameObject useCursor;//使かう
     public GameObject cancelCursor;//やめる
+    public TextMeshProUGUI useText;//「使う」と書かれた文字
     private string useType;//カーソルのアイテムの種類
     private bool selectUseFlug = false;//使用確認ウインドウを開いてるか
     private bool selectUseConfirmation = true;//使用しますかのtrue or false
@@ -83,6 +84,10 @@ public class BackpackManager : MonoBehaviour
     [Header("アイテム入手")]
     public TakeManager takeManager;//アイテム入手のやつ
     
+    //サウンド
+    public string decisionSE = "決定";
+    public string cancelSE = "キャンセル";
+    public string errorSE = "無効";
 
     // Start is called before the first frame update
     void Start()
@@ -101,12 +106,14 @@ public class BackpackManager : MonoBehaviour
             showImageObject.SetActive(false);
             showImageFlug = false;
             gameObject.SetActive(false);
+            SoundManager.instance.PlaySE(cancelSE);
             uiManager.OpenMenuWindow();
         }
 
         //もどるボタンの処理
         if(gameManager.playerInputAction.UI.CloseMenu.triggered)
         {
+            SoundManager.instance.PlaySE(cancelSE);
             if(selectUseFlug)//アイテム使用確認ウインドウ
             {
                 selectUse.SetActive(false);
@@ -169,15 +176,18 @@ public class BackpackManager : MonoBehaviour
                             if(useType == "NOUSE")
                             {
                                 Debug.Log("フラグ用アイテム");
+                                SoundManager.instance.PlaySE(errorSE);
                             }
                             else if(useType == "SHOWIMAGE")
                             {
                                 Debug.Log("画像表示");
+                                SoundManager.instance.PlaySE(decisionSE);
                                 showItemImage();
                             }
                             else if(useType == "GETITEM")
                             {
                                 Debug.Log("アイテムゲット");
+                                SoundManager.instance.PlaySE(decisionSE);
                                 getItem();
                             }
                             else
@@ -188,6 +198,7 @@ public class BackpackManager : MonoBehaviour
                         else//やめる
                         {
                             selectUse.SetActive(false);
+                            SoundManager.instance.PlaySE(cancelSE);
                             selectUseFlug = false;
                             selectUseConfirmation = true;
                         }
@@ -199,10 +210,24 @@ public class BackpackManager : MonoBehaviour
                     SelectControlItem();
                     //アイテム使用確認ウインドウを開く
                     if(gameManager.playerInputAction.UI.DecisionMenu.triggered){
+                        // 「使う」と書かれたテキストの色変え
+                        useType = itemManager.SearchTypeText(itemTextInfo_Item.text);
+                        if(useType == "NOUSE")
+                        {
+                            useText.color = offColor;
+                        }
+                        else
+                        {
+                            useText.color = onColor;
+                        }
+                        // ウインドウ表示
                         selectUse.SetActive(true);
                         selectUseFlug = true;
                         useCursor.SetActive(true);
+                        cancelCursor.SetActive(false);
                         selectUseConfirmation = true;
+                        SoundManager.instance.PlaySE(decisionSE);
+                        
                     }
                 }
                 
