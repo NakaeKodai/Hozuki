@@ -498,8 +498,39 @@ public class BackpackManager : MonoBehaviour
         int useItemID = itemManager.SearchID(itemTextInfo_Item.text);
         string getItemName = itemDataBase.itemList[useItemID].getItemName;
         int getItemID = itemManager.SearchIDForName(getItemName);
-        itemDataBase.itemList[useItemID].haveStatus = ItemData.Status.WASHAVE;
+        deleteItem(itemDataBase.itemList[useItemID].itemName);
+        // itemDataBase.itemList[useItemID].haveStatus = ItemData.Status.WASHAVE;
         takeManager.TakeItem(ItemManager.instance.PickUp(getItemID));
+    }
+
+    //アイテムの削除
+    public void deleteItem(string targetName)
+    {
+        GameObject itemObject;//アイテムのオブジェクト
+        GameObject itemChild;//アイテムのテキストのオブジェクト
+        TextMeshProUGUI itemName;//アイテムのテキスト
+
+        Debug.Log(targetName+"を削除するよ");
+        Debug.Log(content_Item.gameObject.transform.childCount);
+
+        for(int i = 0; i < content_Item.gameObject.transform.childCount; i++)
+        {
+            //各オブジェクト取得
+            itemObject = content_Item.transform.GetChild(i).gameObject;
+            itemChild = itemObject.transform.GetChild(1).gameObject;
+            itemName = itemChild.GetComponent<TextMeshProUGUI>();
+
+            Debug.Log(itemName.text+"を削除したい");
+
+            // 名前が一致していた時のみ削除
+            if(itemName.text == targetName)
+            {
+                Destroy(itemObject);
+                itemDataBase.itemList[itemManager.SearchID(targetName)].haveStatus = ItemData.Status.WASHAVE;
+                Debug.Log(itemName.text+"を削除した");
+                break;
+            }
+        }
     }
 
     //今見ている欄を分かりやすくするために色を変更する処理
