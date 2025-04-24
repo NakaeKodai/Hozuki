@@ -17,6 +17,12 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // シーンが変わっても消えないようにする
     }
 
+    void Start()
+    {
+        //ゲームスタート時に全アイテムを未所持状態にする
+        ReSetItemStatus();
+    }
+
     //itemIDから、そのIDにあったアイテムをデータベースから探し、見つけたら情報を返す
     //もし見つからなかったら[0]番目のデータ(test)を返す
     public ItemData PickUp(int itemID)
@@ -111,5 +117,18 @@ public class ItemManager : MonoBehaviour
             }
         }
         return itemID;
+    }
+
+
+    //所持状態のリセット(デモ版用)
+    private void ReSetItemStatus()
+    {
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(itemDataBase.itemList[i].haveStatus != ItemData.Status.NOTHAVE)
+            {
+                itemDataBase.itemList[i].haveStatus = ItemData.Status.NOTHAVE;
+            }
+        }
     }
 }

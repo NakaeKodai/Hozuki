@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.isOpenMenu)
+        if (!gameManager.isOpenMenu && !gameManager.isOtherMenu)
         {
             if (gameManager.playerInputAction.UI.OpenMenu.triggered)
             {
@@ -167,13 +167,13 @@ public class UIManager : MonoBehaviour
                     break;
                 case 2:
                     Debug.Log("セーブ");
-                    gameManager.Save();
+                    // gameManager.Save();
                     break;
                 case 3:
                     Debug.Log("設定");
-                    settingWindow.SetActive(true);
-                    CloseMenuWindow();
-                    isSettingWindow = true;
+                    // settingWindow.SetActive(true);
+                    // CloseMenuWindow();
+                    // isSettingWindow = true;
                     break;
                 // case 4:
                 //     Debug.Log("セーブ");
@@ -195,13 +195,15 @@ public class UIManager : MonoBehaviour
                     explainText.text = "集めたアイテムや情報を見ることができます";
                     break;
                 case 1:
-                    explainText.text = "私と話すよ";
+                    explainText.text = "何をやるべきかを考えます";
                     break;
                 case 2:
-                    explainText.text = "ゲームの進行を保存します";
+                    // explainText.text = "ゲームの進行を保存します";
+                    explainText.text = "デモ版のため実行できません";
                     break;
                 case 3:
-                    explainText.text = "ゲーム内の設定を変えることができます";
+                    // explainText.text = "ゲーム内の設定を変えることができます";
+                    explainText.text = "デモ版のため実行できません";
                     break;
                 // case 4:
                 //     Debug.Log("セーブ");

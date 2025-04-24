@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     public PlayableDirector director;
     public bool isIvent;
 
-    public  int playerTalkState; //なんだっけ？ 多分今何行目の会話かの制御？
+    public int playerTalkState; //なんだっけ？ 多分今何行目の会話かの制御？
     
     
     void Awake()
@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Load();
+        playerTalkState = 0; //会話内容の初期化(デモ版仕様)
+        //Load();
         playerInputAction = new PlayerInputAction();
         playerInputAction.Enable();
     }
@@ -70,14 +71,14 @@ public class GameManager : MonoBehaviour
 
 
         //セーブ、ロード等のテスト　後で消す
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            Save();
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            Load();
-        }
+        // if(Input.GetKeyDown(KeyCode.K))
+        // {
+        //     Save();
+        // }
+        // if(Input.GetKeyDown(KeyCode.L))
+        // {
+        //     Load();
+        // }
         if(Input.GetKeyDown(KeyCode.F2))
         {
             if(isChaseTime) isChaseTime = false;
