@@ -15,6 +15,8 @@ public class PasswordLock : MonoBehaviour
 
     //本体のオブジェクトの変数
     [SerializeField] private GameObject lockedimage;
+    [SerializeField] private Sprite image;
+    [SerializeField] private Image LockedDisplay;
     [SerializeField] private GameObject password_Prefab;
 
     //カーソル移動の変数
@@ -70,9 +72,11 @@ public class PasswordLock : MonoBehaviour
                     operationText.text = "B : 調べる";
                 }
 
-                if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
+                if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered
+                && !GameManager.instance.isOpenMenu)
                 {
                     ResetPassword();
+                    LockedDisplay.sprite = image;
                     lockedimage.SetActive(true);
                     // operation.SetActive(false);
                     GameManager.instance.isOtherMenu = true;
@@ -86,19 +90,19 @@ public class PasswordLock : MonoBehaviour
                 // 操作説明
                 if(GameManager.controllerType == GameManager.ControllerType.Unknown)
                 {
-                    operationText.text = "W S : 数字変更　　A D : 桁変更";
+                    operationText.text = "ctrl : 閉じる　　W S : 数字変更　　A D : 桁変更";
                 }
                 else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
                 {
-                    operationText.text = "↑ ↓ : 数字変更　　← → : 桁変更";
+                    operationText.text = "× : 閉じる　　↑ ↓ : 数字変更　　← → : 桁変更";
                 }
                 else if(GameManager.controllerType == GameManager.ControllerType.Nintendo)
                 {
-                    operationText.text = "↑ ↓ : 数字変更　　← → : 桁変更";
+                    operationText.text = "B : 閉じる　　↑ ↓ : 数字変更　　← → : 桁変更";
                 }
                 else if(GameManager.controllerType == GameManager.ControllerType.Xbox)
                 {
-                    operationText.text = "↑ ↓ : 数字変更　　← → : 桁変更";
+                    operationText.text = "A : 閉じる　　↑ ↓ : 数字変更　　← → : 桁変更";
                 }
 
                 if(GameManager.instance.playerInputAction.UI.CloseMenu.triggered)

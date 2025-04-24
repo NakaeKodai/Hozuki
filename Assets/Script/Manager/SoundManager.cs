@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"BGM '{name}' not found!");
+            Debug.Log($"BGM '{name}' not found!");
         }
     }
 

@@ -12,10 +12,11 @@ public class TimelineSwitch_Collision : MonoBehaviour
     [Header("一度だけタイムラインを流したいならTrue、何回でも流したいならFalse")]
     public bool onlyOnce;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("タイムライン開始");
             GameManager.instance.director = director;
             controlTimeline.director = director;
             playTimeline.SetActive(true);

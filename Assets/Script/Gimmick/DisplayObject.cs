@@ -50,7 +50,7 @@ public class DisplayObject : MonoBehaviour
                     //操作説明
                     if(GameManager.controllerType == GameManager.ControllerType.Unknown)
                     {
-                        operationText.text = "Ctrl : 閉じる";
+                        operationText.text = "ctrl : 閉じる";
                     }
                     else if(GameManager.controllerType == GameManager.ControllerType.PlayStation)
                     {
