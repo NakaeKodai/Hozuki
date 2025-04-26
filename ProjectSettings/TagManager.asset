@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - CarryObject
   - PushObject
+  - HoleObject
   layers:
   - Default
   - TransparentFX

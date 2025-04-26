@@ -16,6 +16,8 @@ public class PushObject : MonoBehaviour
     private Vector2 playerDirection;//プレイヤーの向き
 
     [SerializeField] LayerMask limitLayer; //壁判定
+    private bool holeIn = false;//穴に入ったか
+    private Hole holeScript;//触れた穴のスクリプト
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,14 @@ public class PushObject : MonoBehaviour
                 nowMove = false;
                 nowDistance = 0f;
                 canPush = false;
+
+                //穴に入った時落とす処理
+                if(holeIn)
+                {
+                    holeScript.setRock = true;
+                    Debug.Log("消えるぜ");
+                    Destroy(gameObject);
+                }
             }
         }
         
@@ -120,6 +130,43 @@ public class PushObject : MonoBehaviour
             }
                 
             Debug.Log("プレイヤーが触れた方向: " + playerDirection);
+        }
+        //穴に入ったか判定
+        else if(other.gameObject.CompareTag("HoleObject"))
+        {
+            Debug.Log("穴判定した");
+            holeIn = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("HoleObject"))
+        {
+            Debug.Log("穴判定した(Enter)");
+            holeIn = true;
+            holeScript = other.GetComponent<Hole>();
+            // holeScript.a();
+        }
+    }
+
+    // private void OnTriggerStay2D(Collider2D other)
+    // {
+    //     if(other.gameObject.CompareTag("HoleObject"))
+    //     {
+    //         Debug.Log("穴判定した(Stay)");
+    //         holeIn = true;
+    //     }
+    // }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("HoleObject"))
+        {
+            Debug.Log("穴判定した(Stay)");
+            holeIn = true;
+            // holeScript = other.GetComponent<Hole>();
+            // holeScript.a();
         }
     }
 

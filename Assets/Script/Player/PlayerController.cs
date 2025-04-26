@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     Vector2 playerDirection; //プレイヤーの向き
     Vector2 iventDirection; //イベントを調べる向き
     Animator animator; //アニメーション変数
+    private Vector2 lastPlayerPosition;//前フレームのキャラの位置（穴用）
+    private bool touchHole = false;
 
     //敵関連の変数
     public GameObject trackPoint;
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Rigidbody2D を取得
+        lastPlayerPosition = rb.position;
     }
 
     private void Awake()
@@ -112,6 +115,12 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
 
+        //穴に触れていない時に現在の位置を保存（穴に落ちない用）
+        if(!touchHole)
+        {
+            lastPlayerPosition = rb.position;
+        }
+
         animator.SetBool("IsMove", isMoving);
     }
 
@@ -119,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         // Rigidbody2D に速度を適用
         if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu 
-        && !GameManager.instance.isIvent&& canMove)
+        && !GameManager.instance.isIvent&& canMove && !touchHole)
         {
             rb.velocity = playerDirection * speed;
         }
@@ -319,6 +328,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log("押し出し可能");
             canPush = true;
         }
+        else if(other.gameObject.CompareTag("HoleObject"))
+        {
+            Debug.Log("穴に当たった");
+            Hole holeObject = other.GetComponent<Hole>();
+            if(!holeObject.setRock){
+                touchHole = true;
+                rb.position = lastPlayerPosition;
+                rb.velocity = Vector2.zero;
+            }
+            
+        }
     }
 
 
@@ -332,6 +352,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("押し出し不可能");
             canPush = false;
+        }
+        else if(other.gameObject.CompareTag("HoleObject"))
+        {
+            Debug.Log("穴にから離れた");
+            touchHole = false;
         }
     }
 }
