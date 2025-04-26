@@ -19,6 +19,10 @@ public class PushObject : MonoBehaviour
     private bool holeIn = false;//穴に入ったか
     private Hole holeScript;//触れた穴のスクリプト
 
+    //Ray関連
+    private bool drawRayOn = false;//ray可視化シテイルか
+    private Vector2 rayStartPosition;//rayの開始地点
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,15 +43,41 @@ public class PushObject : MonoBehaviour
             if(gameManager.playerInputAction.Player.ActionANDDecision.IsPressed())
             {
                 Debug.Log("Space押した");
-                nowMove = true;
-                // playerDirection = gameManager.playerInputAction.Player.Move.ReadValue<Vector2>();
-                // CheckCollisions(); 
-                // Debug.Log(playerDirection.x+","+playerDirection.y);
-                // Debug.Log("プレイヤーが触れた方向: " + playerDirection);
-                // moveDirection = -playerDirection;
+                
+
+                //動く向き判定
                 moveDirection.x = System.Math.Sign(playerDirection.x);
                 moveDirection.y = System.Math.Sign(playerDirection.y);
                 Debug.Log("動く方向: " + moveDirection);
+
+                //動かせない場所判定
+                rayStartPosition = new Vector2(transform.position.x + 0f*moveDirection.x, transform.position.y + 0f*moveDirection.y);
+                RaycastHit2D[] pushHit = Physics2D.RaycastAll(rayStartPosition,moveDirection,(distance+0.5f));
+                drawRayOn = true;
+
+                        foreach(RaycastHit2D hit in pushHit){
+                            Debug.Log("rayで判定したオブジェクト名："+hit.collider.name);
+                            try
+                            {
+                                if(hit.collider != null && hit.collider.CompareTag("NoPush"))
+                                {
+                                    Debug.Log("この向きには推せない");
+                                    nowMove = false;
+                                    break;
+                                }
+                                else
+                                {
+                                    nowMove = true;
+                                    Debug.Log("推した");
+                                }
+                            }
+                            catch
+                            {
+                                Debug.Log("タグなし判定したよ");
+                            }
+                        }
+                        
+                
             }
         }
 
@@ -91,6 +121,13 @@ public class PushObject : MonoBehaviour
         // {
         //     rb.velocity = Vector2.zero; // 停止
         // }
+
+        //デバッグ用のRay可視化
+        if(drawRayOn)
+        {
+            Debug.DrawRay(rayStartPosition, (distance+0.5f)*moveDirection, Color.blue, 1f);
+        }
+        
     }
 
     void CheckCollisions()
