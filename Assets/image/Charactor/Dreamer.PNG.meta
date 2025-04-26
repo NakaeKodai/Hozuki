@@ -1,0 +1,1299 @@
+fileFormatVersion: 2
+guid: bc552dddf0760d74a81782f2b3f95842
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dreamer_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 458
+        width: 67
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -66.5}
+        - {x: 27.5, y: -64.5}
+        - {x: 27.5, y: -58.5}
+        - {x: 25.5, y: -56.5}
+        - {x: 24.5, y: -52.5}
+        - {x: 27.5, y: -48.5}
+        - {x: 27.5, y: -46.5}
+        - {x: 29.5, y: -44.5}
+        - {x: 29.5, y: -40.5}
+        - {x: 31.5, y: -38.5}
+        - {x: 31.5, y: -28.5}
+        - {x: 33.5, y: -26.5}
+        - {x: 33.5, y: 54.5}
+        - {x: 31.5, y: 56.5}
+        - {x: 31.5, y: 59.5}
+        - {x: 21.5, y: 69.5}
+        - {x: -21.5, y: 69.5}
+        - {x: -30.5, y: 60.5}
+        - {x: -30.5, y: 59.5}
+        - {x: -32.5, y: 57.5}
+        - {x: -32.5, y: 53.5}
+        - {x: -33.5, y: 52.5}
+        - {x: -33.5, y: -18.5}
+        - {x: -32.5, y: -19.5}
+        - {x: -32.5, y: -34.5}
+        - {x: -30.5, y: -36.5}
+        - {x: -30.5, y: -41.5}
+        - {x: -28.5, y: -43.5}
+        - {x: -28.5, y: -46.5}
+        - {x: -26.5, y: -48.5}
+        - {x: -26.5, y: -50.5}
+        - {x: -24.5, y: -52.5}
+        - {x: -24.5, y: -54.5}
+        - {x: -26.5, y: -56.5}
+        - {x: -26.5, y: -64.5}
+        - {x: -24.5, y: -66.5}
+        - {x: -22.5, y: -66.5}
+        - {x: -20.5, y: -68.5}
+        - {x: -12.5, y: -68.5}
+        - {x: -12.5, y: -69.5}
+        - {x: 12.5, y: -69.5}
+        - {x: 13.5, y: -68.5}
+        - {x: 20.5, y: -68.5}
+        - {x: 22.5, y: -66.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: c72563880d56ab944acc7651d0da2f50
+      internalID: -177067355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 458
+        width: 67
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -66.5}
+        - {x: 27.5, y: -64.5}
+        - {x: 27.5, y: -58.5}
+        - {x: 25.5, y: -56.5}
+        - {x: 24.5, y: -52.5}
+        - {x: 27.5, y: -48.5}
+        - {x: 27.5, y: -46.5}
+        - {x: 29.5, y: -44.5}
+        - {x: 29.5, y: -40.5}
+        - {x: 31.5, y: -38.5}
+        - {x: 31.5, y: -28.5}
+        - {x: 33.5, y: -26.5}
+        - {x: 33.5, y: 54.5}
+        - {x: 31.5, y: 56.5}
+        - {x: 31.5, y: 59.5}
+        - {x: 21.5, y: 69.5}
+        - {x: -21.5, y: 69.5}
+        - {x: -30.5, y: 60.5}
+        - {x: -32.5, y: 57.5}
+        - {x: -32.5, y: 53.5}
+        - {x: -33.5, y: 52.5}
+        - {x: -33.5, y: -18.5}
+        - {x: -32.5, y: -19.5}
+        - {x: -32.5, y: -34.5}
+        - {x: -30.5, y: -36.5}
+        - {x: -30.5, y: -41.5}
+        - {x: -28.5, y: -43.5}
+        - {x: -28.5, y: -46.5}
+        - {x: -26.5, y: -48.5}
+        - {x: -26.5, y: -50.5}
+        - {x: -24.5, y: -52.5}
+        - {x: -24.5, y: -54.5}
+        - {x: -26.5, y: -56.5}
+        - {x: -26.5, y: -64.5}
+        - {x: -24.5, y: -66.5}
+        - {x: -22.5, y: -66.5}
+        - {x: -20.5, y: -68.5}
+        - {x: -8.5, y: -68.5}
+        - {x: -7.5, y: -69.5}
+        - {x: 12.5, y: -69.5}
+        - {x: 13.5, y: -68.5}
+        - {x: 20.5, y: -68.5}
+        - {x: 22.5, y: -66.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: b4d022ac9dbd6174db8a24095d7193b5
+      internalID: 854223762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_2
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 458
+        width: 67
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: -66.5}
+        - {x: 28.5, y: -64.5}
+        - {x: 28.5, y: -58.5}
+        - {x: 26.5, y: -56.5}
+        - {x: 25.5, y: -52.5}
+        - {x: 28.5, y: -48.5}
+        - {x: 28.5, y: -46.5}
+        - {x: 30.5, y: -44.5}
+        - {x: 30.5, y: -40.5}
+        - {x: 32.5, y: -38.5}
+        - {x: 32.5, y: -28.5}
+        - {x: 33.5, y: -27.5}
+        - {x: 33.5, y: 55.5}
+        - {x: 32.5, y: 56.5}
+        - {x: 32.5, y: 59.5}
+        - {x: 22.5, y: 69.5}
+        - {x: -20.5, y: 69.5}
+        - {x: -29.5, y: 60.5}
+        - {x: -29.5, y: 59.5}
+        - {x: -31.5, y: 57.5}
+        - {x: -31.5, y: 53.5}
+        - {x: -33.5, y: 51.5}
+        - {x: -33.5, y: -17.5}
+        - {x: -31.5, y: -19.5}
+        - {x: -31.5, y: -34.5}
+        - {x: -29.5, y: -36.5}
+        - {x: -29.5, y: -41.5}
+        - {x: -27.5, y: -43.5}
+        - {x: -27.5, y: -46.5}
+        - {x: -25.5, y: -48.5}
+        - {x: -25.5, y: -50.5}
+        - {x: -23.5, y: -52.5}
+        - {x: -23.5, y: -54.5}
+        - {x: -25.5, y: -56.5}
+        - {x: -25.5, y: -64.5}
+        - {x: -23.5, y: -66.5}
+        - {x: -21.5, y: -66.5}
+        - {x: -19.5, y: -68.5}
+        - {x: -5.5, y: -68.5}
+        - {x: -4.5, y: -69.5}
+        - {x: 12.5, y: -69.5}
+        - {x: 13.5, y: -68.5}
+        - {x: 21.5, y: -68.5}
+        - {x: 23.5, y: -66.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 16d7505be524abd4d8be9069dc9dc758
+      internalID: -1680925665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 458
+        width: 67
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -66.5}
+        - {x: 27.5, y: -64.5}
+        - {x: 27.5, y: -58.5}
+        - {x: 25.5, y: -56.5}
+        - {x: 24.5, y: -52.5}
+        - {x: 27.5, y: -48.5}
+        - {x: 27.5, y: -46.5}
+        - {x: 29.5, y: -44.5}
+        - {x: 29.5, y: -40.5}
+        - {x: 31.5, y: -38.5}
+        - {x: 31.5, y: -28.5}
+        - {x: 33.5, y: -26.5}
+        - {x: 33.5, y: 54.5}
+        - {x: 31.5, y: 56.5}
+        - {x: 31.5, y: 59.5}
+        - {x: 21.5, y: 69.5}
+        - {x: -21.5, y: 69.5}
+        - {x: -30.5, y: 60.5}
+        - {x: -30.5, y: 59.5}
+        - {x: -32.5, y: 57.5}
+        - {x: -32.5, y: 53.5}
+        - {x: -33.5, y: 52.5}
+        - {x: -33.5, y: -18.5}
+        - {x: -32.5, y: -19.5}
+        - {x: -32.5, y: -34.5}
+        - {x: -30.5, y: -36.5}
+        - {x: -30.5, y: -41.5}
+        - {x: -28.5, y: -43.5}
+        - {x: -28.5, y: -46.5}
+        - {x: -26.5, y: -48.5}
+        - {x: -26.5, y: -50.5}
+        - {x: -24.5, y: -52.5}
+        - {x: -24.5, y: -54.5}
+        - {x: -26.5, y: -56.5}
+        - {x: -26.5, y: -64.5}
+        - {x: -24.5, y: -66.5}
+        - {x: -22.5, y: -66.5}
+        - {x: -20.5, y: -68.5}
+        - {x: -12.5, y: -68.5}
+        - {x: -12.5, y: -69.5}
+        - {x: 10.5, y: -69.5}
+        - {x: 11.5, y: -68.5}
+        - {x: 20.5, y: -68.5}
+        - {x: 22.5, y: -66.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 6d59f3e0c77f939448d433432b7c6bce
+      internalID: -291690988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_4
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 458
+        width: 67
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.5, y: -66.5}
+        - {x: 26.5, y: -64.5}
+        - {x: 26.5, y: -56.5}
+        - {x: 24.5, y: -54.5}
+        - {x: 24.5, y: -52.5}
+        - {x: 26.5, y: -50.5}
+        - {x: 26.5, y: -48.5}
+        - {x: 28.5, y: -46.5}
+        - {x: 28.5, y: -43.5}
+        - {x: 30.5, y: -41.5}
+        - {x: 30.5, y: -36.5}
+        - {x: 32.5, y: -34.5}
+        - {x: 32.5, y: -19.5}
+        - {x: 33.5, y: -18.5}
+        - {x: 33.5, y: 52.5}
+        - {x: 32.5, y: 53.5}
+        - {x: 32.5, y: 57.5}
+        - {x: 30.5, y: 59.5}
+        - {x: 30.5, y: 60.5}
+        - {x: 21.5, y: 69.5}
+        - {x: -21.5, y: 69.5}
+        - {x: -31.5, y: 59.5}
+        - {x: -31.5, y: 56.5}
+        - {x: -33.5, y: 54.5}
+        - {x: -33.5, y: -26.5}
+        - {x: -31.5, y: -28.5}
+        - {x: -31.5, y: -38.5}
+        - {x: -29.5, y: -40.5}
+        - {x: -29.5, y: -44.5}
+        - {x: -27.5, y: -46.5}
+        - {x: -27.5, y: -48.5}
+        - {x: -25.5, y: -51.5}
+        - {x: -24.5, y: -53.5}
+        - {x: -25.5, y: -54.5}
+        - {x: -25.5, y: -56.5}
+        - {x: -27.5, y: -58.5}
+        - {x: -27.5, y: -64.5}
+        - {x: -25.5, y: -66.5}
+        - {x: -22.5, y: -66.5}
+        - {x: -20.5, y: -68.5}
+        - {x: -11.5, y: -68.5}
+        - {x: -11.5, y: -69.5}
+        - {x: 9.5, y: -69.5}
+        - {x: 10.5, y: -68.5}
+        - {x: 20.5, y: -68.5}
+        - {x: 22.5, y: -66.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 046c4b7070222e347b3cdeb1e330c448
+      internalID: -1049314430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_5
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 316
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -58.5}
+        - {x: 18, y: -54.5}
+        - {x: 21, y: -54.5}
+        - {x: 27, y: -48.5}
+        - {x: 27, y: -46.5}
+        - {x: 29, y: -44.5}
+        - {x: 29, y: -40.5}
+        - {x: 31, y: -38.5}
+        - {x: 31, y: -28.5}
+        - {x: 32, y: -27.5}
+        - {x: 32, y: 55.5}
+        - {x: 31, y: 56.5}
+        - {x: 31, y: 59.5}
+        - {x: 23, y: 67.5}
+        - {x: 21, y: 67.5}
+        - {x: 19, y: 69.5}
+        - {x: -19, y: 69.5}
+        - {x: -24, y: 67.5}
+        - {x: -29, y: 61.5}
+        - {x: -29, y: 60.5}
+        - {x: -31, y: 58.5}
+        - {x: -31, y: 12.5}
+        - {x: -27, y: 8.5}
+        - {x: -27, y: 7.5}
+        - {x: -24, y: 4.5}
+        - {x: -18, y: 3.5}
+        - {x: -22, y: 3.5}
+        - {x: -24, y: 1.5}
+        - {x: -29, y: 1.5}
+        - {x: -30, y: 2.5}
+        - {x: -32, y: 2.5}
+        - {x: -32, y: -16.5}
+        - {x: -31, y: -17.5}
+        - {x: -31, y: -20.5}
+        - {x: -29, y: -22.5}
+        - {x: -15, y: -22.5}
+        - {x: -15, y: -43.5}
+        - {x: -17, y: -45.5}
+        - {x: -17, y: -50.5}
+        - {x: -19, y: -52.5}
+        - {x: -19, y: -55.5}
+        - {x: -23, y: -59.5}
+        - {x: -23, y: -64.5}
+        - {x: -21, y: -66.5}
+        - {x: -19, y: -66.5}
+        - {x: -17, y: -68.5}
+        - {x: -8, y: -68.5}
+        - {x: -7, y: -69.5}
+        - {x: 7, y: -69.5}
+        - {x: 8, y: -68.5}
+        - {x: 16, y: -68.5}
+        - {x: 21, y: -64.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 5d12d68defe1677488e6adbca477d892
+      internalID: -1169024731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 316
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -68.5}
+        - {x: 16, y: -68.5}
+        - {x: 21, y: -64.5}
+        - {x: 21, y: -58.5}
+        - {x: 18, y: -54.5}
+        - {x: 21, y: -54.5}
+        - {x: 27, y: -48.5}
+        - {x: 27, y: -46.5}
+        - {x: 29, y: -44.5}
+        - {x: 29, y: -40.5}
+        - {x: 31, y: -38.5}
+        - {x: 31, y: -28.5}
+        - {x: 32, y: -27.5}
+        - {x: 32, y: 55.5}
+        - {x: 31, y: 56.5}
+        - {x: 31, y: 59.5}
+        - {x: 23, y: 67.5}
+        - {x: 21, y: 67.5}
+        - {x: 19, y: 69.5}
+        - {x: -19, y: 69.5}
+        - {x: -24, y: 67.5}
+        - {x: -29, y: 61.5}
+        - {x: -29, y: 60.5}
+        - {x: -31, y: 58.5}
+        - {x: -31, y: 12.5}
+        - {x: -27, y: 8.5}
+        - {x: -27, y: 7.5}
+        - {x: -24, y: 4.5}
+        - {x: -18, y: 3.5}
+        - {x: -22, y: 3.5}
+        - {x: -24, y: 1.5}
+        - {x: -29, y: 1.5}
+        - {x: -30, y: 2.5}
+        - {x: -32, y: 2.5}
+        - {x: -32, y: -16.5}
+        - {x: -31, y: -17.5}
+        - {x: -31, y: -20.5}
+        - {x: -29, y: -22.5}
+        - {x: -15, y: -22.5}
+        - {x: -15, y: -43.5}
+        - {x: -17, y: -45.5}
+        - {x: -17, y: -50.5}
+        - {x: -19, y: -52.5}
+        - {x: -19, y: -55.5}
+        - {x: -23, y: -59.5}
+        - {x: -23, y: -65.5}
+        - {x: -15, y: -69.5}
+        - {x: -1, y: -69.5}
+        - {x: -1, y: -68.5}
+        - {x: -1, y: -69.5}
+        - {x: 13, y: -69.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: c0205b497c67e134ca6dacc7719163f5
+      internalID: 49992576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_7
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 316
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -69.5}
+        - {x: 19, y: -66.5}
+        - {x: 21, y: -64.5}
+        - {x: 21, y: -58.5}
+        - {x: 18, y: -54.5}
+        - {x: 21, y: -54.5}
+        - {x: 27, y: -48.5}
+        - {x: 27, y: -46.5}
+        - {x: 29, y: -44.5}
+        - {x: 29, y: -40.5}
+        - {x: 31, y: -38.5}
+        - {x: 31, y: -28.5}
+        - {x: 32, y: -27.5}
+        - {x: 32, y: 55.5}
+        - {x: 31, y: 56.5}
+        - {x: 31, y: 59.5}
+        - {x: 23, y: 67.5}
+        - {x: 21, y: 67.5}
+        - {x: 19, y: 69.5}
+        - {x: -19, y: 69.5}
+        - {x: -24, y: 67.5}
+        - {x: -29, y: 61.5}
+        - {x: -29, y: 60.5}
+        - {x: -31, y: 58.5}
+        - {x: -31, y: 12.5}
+        - {x: -27, y: 8.5}
+        - {x: -27, y: 7.5}
+        - {x: -24, y: 4.5}
+        - {x: -18, y: 3.5}
+        - {x: -22, y: 3.5}
+        - {x: -24, y: 1.5}
+        - {x: -29, y: 1.5}
+        - {x: -30, y: 2.5}
+        - {x: -32, y: 2.5}
+        - {x: -32, y: -16.5}
+        - {x: -31, y: -17.5}
+        - {x: -31, y: -20.5}
+        - {x: -29, y: -22.5}
+        - {x: -15, y: -22.5}
+        - {x: -15, y: -43.5}
+        - {x: -17, y: -45.5}
+        - {x: -17, y: -50.5}
+        - {x: -19, y: -52.5}
+        - {x: -19, y: -55.5}
+        - {x: -23, y: -59.5}
+        - {x: -23, y: -65.5}
+        - {x: -19, y: -67.5}
+        - {x: -19, y: -69.5}
+        - {x: -5, y: -69.5}
+        - {x: -4, y: -68.5}
+        - {x: 2, y: -68.5}
+        - {x: 3, y: -69.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 38fa5696032c5cb4ab98a8258c0f7b2a
+      internalID: 1431783573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 168
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: -58.5}
+        - {x: 19, y: -53.5}
+        - {x: 19, y: -49.5}
+        - {x: 17, y: -47.5}
+        - {x: 17, y: -40.5}
+        - {x: 15, y: -38.5}
+        - {x: 15, y: -30.5}
+        - {x: 17, y: -28.5}
+        - {x: 17, y: -22.5}
+        - {x: 31, y: -22.5}
+        - {x: 32, y: -21.5}
+        - {x: 32, y: -0.5}
+        - {x: 30, y: 1.5}
+        - {x: 25, y: 1.5}
+        - {x: 23, y: 3.5}
+        - {x: 19, y: 3.5}
+        - {x: 22, y: 3.5}
+        - {x: 24, y: 5.5}
+        - {x: 25, y: 5.5}
+        - {x: 31, y: 11.5}
+        - {x: 31, y: 12.5}
+        - {x: 32, y: 13.5}
+        - {x: 32, y: 24.5}
+        - {x: 31, y: 25.5}
+        - {x: 31, y: 34.5}
+        - {x: 32, y: 35.5}
+        - {x: 32, y: 56.5}
+        - {x: 31, y: 57.5}
+        - {x: 31, y: 60.5}
+        - {x: 25, y: 67.5}
+        - {x: 20, y: 69.5}
+        - {x: -18, y: 69.5}
+        - {x: -20, y: 67.5}
+        - {x: -22, y: 67.5}
+        - {x: -29, y: 60.5}
+        - {x: -29, y: 59.5}
+        - {x: -31, y: 57.5}
+        - {x: -31, y: 53.5}
+        - {x: -32, y: 52.5}
+        - {x: -32, y: -18.5}
+        - {x: -31, y: -19.5}
+        - {x: -31, y: -34.5}
+        - {x: -29, y: -36.5}
+        - {x: -29, y: -41.5}
+        - {x: -27, y: -43.5}
+        - {x: -27, y: -46.5}
+        - {x: -25, y: -48.5}
+        - {x: -25, y: -49.5}
+        - {x: -20, y: -54.5}
+        - {x: -17, y: -54.5}
+        - {x: -17, y: -55.5}
+        - {x: -21, y: -59.5}
+        - {x: -21, y: -64.5}
+        - {x: -19, y: -66.5}
+        - {x: -17, y: -66.5}
+        - {x: -15, y: -68.5}
+        - {x: -5, y: -68.5}
+        - {x: -5, y: -69.5}
+        - {x: 9, y: -69.5}
+        - {x: 10, y: -68.5}
+        - {x: 18, y: -68.5}
+        - {x: 23, y: -64.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 35c70aa1a6ad18a42944522fbf1d7c3e
+      internalID: -818125996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_9
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 168
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: -68.5}
+        - {x: 23, y: -64.5}
+        - {x: 23, y: -58.5}
+        - {x: 19, y: -53.5}
+        - {x: 19, y: -49.5}
+        - {x: 17, y: -47.5}
+        - {x: 17, y: -40.5}
+        - {x: 15, y: -38.5}
+        - {x: 15, y: -30.5}
+        - {x: 17, y: -28.5}
+        - {x: 17, y: -22.5}
+        - {x: 31, y: -22.5}
+        - {x: 32, y: -21.5}
+        - {x: 32, y: -0.5}
+        - {x: 30, y: 1.5}
+        - {x: 25, y: 1.5}
+        - {x: 23, y: 3.5}
+        - {x: 19, y: 3.5}
+        - {x: 22, y: 3.5}
+        - {x: 24, y: 5.5}
+        - {x: 25, y: 5.5}
+        - {x: 31, y: 11.5}
+        - {x: 31, y: 12.5}
+        - {x: 32, y: 13.5}
+        - {x: 32, y: 24.5}
+        - {x: 31, y: 25.5}
+        - {x: 31, y: 34.5}
+        - {x: 32, y: 35.5}
+        - {x: 32, y: 56.5}
+        - {x: 31, y: 57.5}
+        - {x: 31, y: 60.5}
+        - {x: 25, y: 67.5}
+        - {x: 20, y: 69.5}
+        - {x: -18, y: 69.5}
+        - {x: -20, y: 67.5}
+        - {x: -22, y: 67.5}
+        - {x: -29, y: 60.5}
+        - {x: -29, y: 59.5}
+        - {x: -31, y: 57.5}
+        - {x: -31, y: 53.5}
+        - {x: -32, y: 52.5}
+        - {x: -32, y: -18.5}
+        - {x: -31, y: -19.5}
+        - {x: -31, y: -34.5}
+        - {x: -29, y: -36.5}
+        - {x: -29, y: -41.5}
+        - {x: -27, y: -43.5}
+        - {x: -27, y: -46.5}
+        - {x: -25, y: -48.5}
+        - {x: -25, y: -49.5}
+        - {x: -20, y: -54.5}
+        - {x: -17, y: -54.5}
+        - {x: -17, y: -55.5}
+        - {x: -21, y: -59.5}
+        - {x: -21, y: -65.5}
+        - {x: -13, y: -69.5}
+        - {x: 17, y: -69.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 0a016281beeeec046b7ad1292b3ba7e8
+      internalID: 346082583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_10
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 168
+        width: 64
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: -69.5}
+        - {x: 21, y: -66.5}
+        - {x: 23, y: -64.5}
+        - {x: 23, y: -58.5}
+        - {x: 19, y: -53.5}
+        - {x: 19, y: -49.5}
+        - {x: 17, y: -47.5}
+        - {x: 17, y: -40.5}
+        - {x: 15, y: -38.5}
+        - {x: 15, y: -30.5}
+        - {x: 17, y: -28.5}
+        - {x: 17, y: -22.5}
+        - {x: 31, y: -22.5}
+        - {x: 32, y: -21.5}
+        - {x: 32, y: -0.5}
+        - {x: 30, y: 1.5}
+        - {x: 25, y: 1.5}
+        - {x: 23, y: 3.5}
+        - {x: 19, y: 3.5}
+        - {x: 22, y: 3.5}
+        - {x: 24, y: 5.5}
+        - {x: 25, y: 5.5}
+        - {x: 31, y: 11.5}
+        - {x: 31, y: 12.5}
+        - {x: 32, y: 13.5}
+        - {x: 32, y: 24.5}
+        - {x: 31, y: 25.5}
+        - {x: 31, y: 34.5}
+        - {x: 32, y: 35.5}
+        - {x: 32, y: 56.5}
+        - {x: 31, y: 57.5}
+        - {x: 31, y: 60.5}
+        - {x: 25, y: 67.5}
+        - {x: 20, y: 69.5}
+        - {x: -18, y: 69.5}
+        - {x: -20, y: 67.5}
+        - {x: -22, y: 67.5}
+        - {x: -29, y: 60.5}
+        - {x: -29, y: 59.5}
+        - {x: -31, y: 57.5}
+        - {x: -31, y: 53.5}
+        - {x: -32, y: 52.5}
+        - {x: -32, y: -18.5}
+        - {x: -31, y: -19.5}
+        - {x: -31, y: -34.5}
+        - {x: -29, y: -36.5}
+        - {x: -29, y: -41.5}
+        - {x: -27, y: -43.5}
+        - {x: -27, y: -46.5}
+        - {x: -25, y: -48.5}
+        - {x: -25, y: -49.5}
+        - {x: -20, y: -54.5}
+        - {x: -17, y: -54.5}
+        - {x: -17, y: -55.5}
+        - {x: -21, y: -59.5}
+        - {x: -21, y: -65.5}
+        - {x: -17, y: -67.5}
+        - {x: -17, y: -69.5}
+        - {x: -2, y: -69.5}
+        - {x: -1, y: -68.5}
+        - {x: 4, y: -68.5}
+        - {x: 5, y: -69.5}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 1a5db2451d95a4348bc1d8da848e9f8e
+      internalID: -1148010196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 4
+        width: 67
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.5, y: -67}
+        - {x: 26.5, y: -65}
+        - {x: 26.5, y: -57}
+        - {x: 24.5, y: -55}
+        - {x: 24.5, y: -53}
+        - {x: 26.5, y: -51}
+        - {x: 26.5, y: -49}
+        - {x: 28.5, y: -47}
+        - {x: 28.5, y: -44}
+        - {x: 30.5, y: -42}
+        - {x: 30.5, y: -37}
+        - {x: 32.5, y: -35}
+        - {x: 32.5, y: -29}
+        - {x: 33.5, y: -28}
+        - {x: 33.5, y: 52}
+        - {x: 32.5, y: 53}
+        - {x: 32.5, y: 57}
+        - {x: 30.5, y: 59}
+        - {x: 30.5, y: 60}
+        - {x: 21.5, y: 69}
+        - {x: 19.5, y: 69}
+        - {x: 18.5, y: 70}
+        - {x: -20.5, y: 70}
+        - {x: -22.5, y: 69}
+        - {x: -31.5, y: 59}
+        - {x: -31.5, y: 56}
+        - {x: -33.5, y: 54}
+        - {x: -33.5, y: -29}
+        - {x: -31.5, y: -33}
+        - {x: -31.5, y: -39}
+        - {x: -29.5, y: -41}
+        - {x: -29.5, y: -45}
+        - {x: -27.5, y: -47}
+        - {x: -26.5, y: -52}
+        - {x: -24.5, y: -54}
+        - {x: -25.5, y: -55}
+        - {x: -25.5, y: -57}
+        - {x: -27.5, y: -59}
+        - {x: -27.5, y: -65}
+        - {x: -25.5, y: -67}
+        - {x: -22.5, y: -67}
+        - {x: -20.5, y: -69}
+        - {x: -13.5, y: -69}
+        - {x: -12.5, y: -70}
+        - {x: 12.5, y: -70}
+        - {x: 13.5, y: -69}
+        - {x: 20.5, y: -69}
+        - {x: 22.5, y: -67}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 8cf8a4d3ba8bdc7439a9fb5db8bde954
+      internalID: 1220537007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_12
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 4
+        width: 67
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -67}
+        - {x: 27.5, y: -65}
+        - {x: 27.5, y: -59}
+        - {x: 25.5, y: -57}
+        - {x: 24.5, y: -53}
+        - {x: 27.5, y: -49}
+        - {x: 27.5, y: -47}
+        - {x: 29.5, y: -45}
+        - {x: 29.5, y: -41}
+        - {x: 31.5, y: -39}
+        - {x: 31.5, y: -31}
+        - {x: 32.5, y: -30}
+        - {x: 32.5, y: -28}
+        - {x: 33.5, y: -27}
+        - {x: 33.5, y: 54}
+        - {x: 31.5, y: 56}
+        - {x: 31.5, y: 59}
+        - {x: 21.5, y: 69}
+        - {x: 19.5, y: 69}
+        - {x: 18.5, y: 70}
+        - {x: -19.5, y: 70}
+        - {x: -20.5, y: 69}
+        - {x: -22.5, y: 69}
+        - {x: -24.5, y: 67}
+        - {x: -24.5, y: 66}
+        - {x: -30.5, y: 60}
+        - {x: -32.5, y: 57}
+        - {x: -32.5, y: 53}
+        - {x: -33.5, y: 52}
+        - {x: -33.5, y: -28}
+        - {x: -32.5, y: -29}
+        - {x: -32.5, y: -35}
+        - {x: -30.5, y: -37}
+        - {x: -30.5, y: -42}
+        - {x: -28.5, y: -44}
+        - {x: -28.5, y: -47}
+        - {x: -26.5, y: -49}
+        - {x: -26.5, y: -51}
+        - {x: -24.5, y: -53}
+        - {x: -24.5, y: -55}
+        - {x: -26.5, y: -57}
+        - {x: -26.5, y: -65}
+        - {x: -24.5, y: -67}
+        - {x: -22.5, y: -67}
+        - {x: -20.5, y: -69}
+        - {x: -8.5, y: -69}
+        - {x: -7.5, y: -70}
+        - {x: 12.5, y: -70}
+        - {x: 13.5, y: -69}
+        - {x: 20.5, y: -69}
+        - {x: 22.5, y: -67}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 7e1e28c8361901e45b11a659a2162316
+      internalID: -109775421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 4
+        width: 67
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.5, y: -67}
+        - {x: 26.5, y: -65}
+        - {x: 26.5, y: -57}
+        - {x: 24.5, y: -55}
+        - {x: 24.5, y: -53}
+        - {x: 26.5, y: -51}
+        - {x: 26.5, y: -49}
+        - {x: 28.5, y: -47}
+        - {x: 28.5, y: -44}
+        - {x: 30.5, y: -42}
+        - {x: 30.5, y: -37}
+        - {x: 32.5, y: -35}
+        - {x: 32.5, y: -29}
+        - {x: 33.5, y: -28}
+        - {x: 33.5, y: 52}
+        - {x: 32.5, y: 53}
+        - {x: 32.5, y: 57}
+        - {x: 30.5, y: 59}
+        - {x: 30.5, y: 60}
+        - {x: 21.5, y: 69}
+        - {x: 19.5, y: 69}
+        - {x: 18.5, y: 70}
+        - {x: -20.5, y: 70}
+        - {x: -22.5, y: 69}
+        - {x: -31.5, y: 59}
+        - {x: -31.5, y: 56}
+        - {x: -33.5, y: 54}
+        - {x: -33.5, y: -29}
+        - {x: -31.5, y: -33}
+        - {x: -31.5, y: -39}
+        - {x: -29.5, y: -41}
+        - {x: -29.5, y: -45}
+        - {x: -27.5, y: -47}
+        - {x: -26.5, y: -52}
+        - {x: -24.5, y: -54}
+        - {x: -25.5, y: -55}
+        - {x: -25.5, y: -57}
+        - {x: -27.5, y: -59}
+        - {x: -27.5, y: -65}
+        - {x: -25.5, y: -67}
+        - {x: -22.5, y: -67}
+        - {x: -20.5, y: -69}
+        - {x: -7.5, y: -69}
+        - {x: -6.5, y: -70}
+        - {x: 11.5, y: -70}
+        - {x: 12.5, y: -69}
+        - {x: 20.5, y: -69}
+        - {x: 22.5, y: -67}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 695b4311f45d9104e9f03d21202e27b1
+      internalID: 1760775205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_14
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 4
+        width: 67
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -67}
+        - {x: 27.5, y: -65}
+        - {x: 27.5, y: -59}
+        - {x: 25.5, y: -57}
+        - {x: 24.5, y: -53}
+        - {x: 27.5, y: -49}
+        - {x: 27.5, y: -47}
+        - {x: 29.5, y: -45}
+        - {x: 29.5, y: -41}
+        - {x: 31.5, y: -39}
+        - {x: 31.5, y: -31}
+        - {x: 32.5, y: -30}
+        - {x: 32.5, y: -28}
+        - {x: 33.5, y: -27}
+        - {x: 33.5, y: 54}
+        - {x: 31.5, y: 56}
+        - {x: 31.5, y: 59}
+        - {x: 21.5, y: 69}
+        - {x: 19.5, y: 69}
+        - {x: 18.5, y: 70}
+        - {x: -19.5, y: 70}
+        - {x: -20.5, y: 69}
+        - {x: -22.5, y: 69}
+        - {x: -24.5, y: 67}
+        - {x: -24.5, y: 66}
+        - {x: -30.5, y: 60}
+        - {x: -30.5, y: 59}
+        - {x: -32.5, y: 57}
+        - {x: -32.5, y: 53}
+        - {x: -33.5, y: 52}
+        - {x: -33.5, y: -28}
+        - {x: -32.5, y: -29}
+        - {x: -32.5, y: -35}
+        - {x: -30.5, y: -37}
+        - {x: -30.5, y: -42}
+        - {x: -28.5, y: -44}
+        - {x: -28.5, y: -47}
+        - {x: -26.5, y: -49}
+        - {x: -26.5, y: -51}
+        - {x: -24.5, y: -53}
+        - {x: -24.5, y: -55}
+        - {x: -26.5, y: -57}
+        - {x: -26.5, y: -65}
+        - {x: -24.5, y: -67}
+        - {x: -22.5, y: -67}
+        - {x: -20.5, y: -69}
+        - {x: -12.5, y: -69}
+        - {x: -12.5, y: -70}
+        - {x: 10.5, y: -70}
+        - {x: 11.5, y: -69}
+        - {x: 20.5, y: -69}
+        - {x: 22.5, y: -67}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: 1386d2dbff2e58f42a371ff6440d8475
+      internalID: 1851778076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dreamer_15
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 4
+        width: 67
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -67}
+        - {x: 27.5, y: -65}
+        - {x: 27.5, y: -59}
+        - {x: 25.5, y: -57}
+        - {x: 24.5, y: -53}
+        - {x: 27.5, y: -49}
+        - {x: 27.5, y: -47}
+        - {x: 29.5, y: -45}
+        - {x: 29.5, y: -41}
+        - {x: 31.5, y: -39}
+        - {x: 31.5, y: -31}
+        - {x: 32.5, y: -30}
+        - {x: 32.5, y: -28}
+        - {x: 33.5, y: -27}
+        - {x: 33.5, y: 54}
+        - {x: 31.5, y: 56}
+        - {x: 31.5, y: 59}
+        - {x: 21.5, y: 69}
+        - {x: 19.5, y: 69}
+        - {x: 18.5, y: 70}
+        - {x: -19.5, y: 70}
+        - {x: -20.5, y: 69}
+        - {x: -22.5, y: 69}
+        - {x: -24.5, y: 67}
+        - {x: -24.5, y: 66}
+        - {x: -30.5, y: 60}
+        - {x: -32.5, y: 57}
+        - {x: -32.5, y: 53}
+        - {x: -33.5, y: 52}
+        - {x: -33.5, y: -28}
+        - {x: -32.5, y: -29}
+        - {x: -32.5, y: -35}
+        - {x: -30.5, y: -37}
+        - {x: -30.5, y: -42}
+        - {x: -28.5, y: -44}
+        - {x: -28.5, y: -47}
+        - {x: -26.5, y: -49}
+        - {x: -26.5, y: -51}
+        - {x: -24.5, y: -53}
+        - {x: -24.5, y: -55}
+        - {x: -26.5, y: -57}
+        - {x: -26.5, y: -65}
+        - {x: -24.5, y: -67}
+        - {x: -22.5, y: -67}
+        - {x: -20.5, y: -69}
+        - {x: -12.5, y: -69}
+        - {x: -11.5, y: -70}
+        - {x: 10.5, y: -70}
+        - {x: 11.5, y: -69}
+        - {x: 20.5, y: -69}
+        - {x: 22.5, y: -67}
+      physicsShape: []
+      tessellationDetail: 1
+      bones: []
+      spriteID: d644b9407a9efda4d96fb52725cb2d54
+      internalID: -1183223011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dreamer_0: -177067355
+      Dreamer_1: 854223762
+      Dreamer_10: -1148010196
+      Dreamer_11: 1220537007
+      Dreamer_12: -109775421
+      Dreamer_13: 1760775205
+      Dreamer_14: 1851778076
+      Dreamer_15: -1183223011
+      Dreamer_2: -1680925665
+      Dreamer_3: -291690988
+      Dreamer_4: -1049314430
+      Dreamer_5: -1169024731
+      Dreamer_6: 49992576
+      Dreamer_7: 1431783573
+      Dreamer_8: -818125996
+      Dreamer_9: 346082583
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
