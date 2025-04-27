@@ -43,14 +43,14 @@ public class KeyDoor : MonoBehaviour
                     if(itemDataBase.itemList[i].haveStatus == ItemData.Status.HAVE)
                     {
                         talkManager.Talk(talkTopic.topicList[0].topic, true);
-                        SoundManager.instance.PlaySE(openSE);
+                        if(openSE != "")SoundManager.instance.PlaySE(openSE);
                         Destroy(gameObject);
                         break;
                     }
                     else
                     {
                         talkManager.Talk(talkTopic.topicList[1].topic, true);
-                        SoundManager.instance.PlaySE(closeSE);
+                        if(closeSE != "") SoundManager.instance.PlaySE(closeSE);
                         break;
                     }
                 }

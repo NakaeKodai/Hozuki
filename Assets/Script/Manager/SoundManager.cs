@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     [SerializeField] private AudioSource bgmSource; //BGMのオーディオソース
+    [SerializeField] private AudioSource bgmSource2; //BGMのオーディオソース2個目
     [SerializeField] private AudioSource seSource; //SEのオーディオソース
 
     [System.Serializable]
@@ -40,8 +41,16 @@ public class SoundManager : MonoBehaviour
     {
         if (bgmDict.TryGetValue(name, out AudioClip clip))
         {
-            bgmSource.clip = clip;
-            bgmSource.Play();
+            if(bgmSource.isPlaying == false)
+            {
+                bgmSource.clip = clip;
+                bgmSource.Play();
+            }
+            else if(bgmSource2.isPlaying == false)
+            {
+                bgmSource2.clip = clip;
+                bgmSource2.Play();
+            }
         }
         else
         {
@@ -52,6 +61,7 @@ public class SoundManager : MonoBehaviour
     public void StopBGM()
     {
         bgmSource.Stop();
+        bgmSource2.Stop();
     }
 
     public void PlaySE(string name)

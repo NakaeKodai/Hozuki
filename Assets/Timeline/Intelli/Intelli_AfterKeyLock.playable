@@ -233,7 +233,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u305D\u3046\u3044\u3048\u3070\u3055\u3063\u304D\u53EB\u3073\u58F0\u306E\u3088\u3046\u306A\u3082\u306E\u304C\u805E\u3053\u3048\u305F\u306A"
+    text: "\u305D\u3046\u3044\u3048\u3070\u3055\u3063\u304D\u4E0B\u306E\u968E\u3067\u53EB\u3073\u58F0\u306E\u3088\u3046\u306A\u3082\u306E\u304C\u805E\u3053\u3048\u305F\u306A"
 --- !u!114 &-1934741198894310974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,7 +552,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "\u305D\u3046\u3044\u3048\u3070\u3055\u3063\u304D\u53EB\u3073\u58F0\u306E\u3088\u3046\u306A\u3082\u306E\u304C\u805E\u3053\u3048\u305F\u306A"
+    m_DisplayName: "\u305D\u3046\u3044\u3048\u3070\u3055\u3063\u304D\u4E0B\u306E\u968E\u3067\u53EB\u3073\u58F0\u306E\u3088\u3046\u306A\u3082\u306E\u304C\u805E\u3053\u3048\u305F\u306A"
   - m_Version: 1
     m_Start: 1.666666666666667
     m_ClipIn: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "\u305D\u3046\u3044\u3048\u3070\u3055\u3063\u304D\u53EB\u3073\u58F0\u306E\u3088\u3046\u306A\u3082\u306E\u304C\u805E\u3053\u3048\u305F\u306A"
+    m_DisplayName: "\u6C17\u306B\u306A\u308B\u3057\u8ABF\u3079\u3066\u307F\u308B\u304B"
   m_Markers:
     m_Objects: []
 --- !u!114 &3118980375752601720

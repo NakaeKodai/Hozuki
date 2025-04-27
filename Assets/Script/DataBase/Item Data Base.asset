@@ -32,15 +32,15 @@ MonoBehaviour:
   - itemID: 1
     itemName: "4-1\u306E\u30AB\u30AE"
     itemImage: {fileID: -125511043, guid: 0e20c8320054fe34292cffdb348bfc10, type: 3}
-    haveStatus: 1
+    haveStatus: 0
     useType: 0
     itemInfo: "4-1\u306E\u30AB\u30AE"
     showImage: {fileID: 0}
     getItemName: 
   - itemID: 2
-    itemName: "\u7D75\u3068\u3007\u304C\u66F8\u304B\u308C\u305F\u7D19"
+    itemName: "\u7D75\u3068\u4E38\u304C\u66F8\u304B\u308C\u305F\u7D19"
     itemImage: {fileID: 21300000, guid: 540dec64a03c49142b8f960d6810dc94, type: 3}
-    haveStatus: 1
+    haveStatus: 0
     useType: 1
     itemInfo: "\u30A2\u30A4\u30C6\u30E0\u30B2\u30C3\u30C8\u306E\u30C6\u30B9\u30C6\u30A3\u30F3\u30B0"
     showImage: {fileID: 21300000, guid: 540dec64a03c49142b8f960d6810dc94, type: 3}
