@@ -29,6 +29,7 @@ public class ChaseSwitch : MonoBehaviour
             {
                 Debug.Log("チェイス開始");
                 GameManager.instance.isChaseTime = true;
+                ChaseManager.instance.ResetTarget();
                 ghostNav.speed = speed;
                 ghost.SetActive(true);
             }

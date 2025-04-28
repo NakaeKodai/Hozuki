@@ -7,7 +7,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     [SerializeField] private AudioSource bgmSource; //BGMのオーディオソース
-    [SerializeField] private AudioSource bgmSource2; //BGMのオーディオソース2個目
+
+    [SerializeField] private AudioSource chaseSource; //追われるオーディオソース
+    [SerializeField] private AudioSource tinnitusSource; //耳鳴りのオーディオソース
+
     [SerializeField] private AudioSource seSource; //SEのオーディオソース
 
     [System.Serializable]
@@ -46,11 +49,6 @@ public class SoundManager : MonoBehaviour
                 bgmSource.clip = clip;
                 bgmSource.Play();
             }
-            else if(bgmSource2.isPlaying == false)
-            {
-                bgmSource2.clip = clip;
-                bgmSource2.Play();
-            }
         }
         else
         {
@@ -58,10 +56,27 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PlayChaseBGM()
+    {
+        if(chaseSource != null && tinnitusSource != null)
+        {
+            if(!chaseSource.isPlaying && !tinnitusSource.isPlaying)
+            {
+                chaseSource.Play();
+                tinnitusSource.Play();
+            }
+        }
+        else
+        {
+            Debug.Log("なんもねぇ");
+        }
+    }
+
     public void StopBGM()
     {
         bgmSource.Stop();
-        bgmSource2.Stop();
+        chaseSource.Stop();
+        tinnitusSource.Stop();
     }
 
     public void PlaySE(string name)

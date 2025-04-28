@@ -24,6 +24,8 @@ public class TakeManager : MonoBehaviour
     private float timer = 0.0f;
     private Animator animator;
 
+    public string getSE = "取得";
+
 
     void Awake()
     {
@@ -35,6 +37,9 @@ public class TakeManager : MonoBehaviour
     //アイテム入手時の処理
     public void TakeItem(ItemData pickUPitem)
     {
+        // 入手時の音
+        SoundManager.instance.PlaySE(getSE);
+
         //テキスト内容のセット
         this.pickUPitem = pickUPitem;
         gameManager.isOtherMenu = true;

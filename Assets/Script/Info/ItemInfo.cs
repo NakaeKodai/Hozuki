@@ -17,8 +17,6 @@ public class ItemInfo : MonoBehaviour
     [SerializeField] private GameObject operation;
     [SerializeField] private TextMeshProUGUI operationText;
 
-    public string getSE = "取得";
-
     void Update()
     {
         if(canGet)
@@ -53,8 +51,6 @@ public class ItemInfo : MonoBehaviour
     //自分をデストロイする
     public void DestroyObject()
     {
-        SoundManager.instance.PlaySE(getSE);
-        //gameObject.SetActive(false);
         Destroy(gameObject);
     }
 

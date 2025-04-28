@@ -6,6 +6,8 @@ public class ChaseManager : MonoBehaviour
 {
     public static ChaseManager instance;
 
+    [SerializeField] private PlayerController playerController;
+
     public GameObject ghost;
 
     private void Awake()
@@ -20,14 +22,20 @@ public class ChaseManager : MonoBehaviour
     {
         if(GameManager.instance.isChaseTime)
         {
-            SoundManager.instance.PlayBGM("追われる");
-            SoundManager.instance.PlayBGM("耳鳴り");
+            SoundManager.instance.PlayChaseBGM();   
+            // SoundManager.instance.PlayBGM("追われる");
+            // SoundManager.instance.PlayBGM("耳鳴り");
         }
         else
         {
             SoundManager.instance.StopBGM();
         }
         
+    }
+
+    public void ResetTarget()
+    {
+        playerController.isTeleport = false;
     }
 
     public void MoveLocation(float x, float y)

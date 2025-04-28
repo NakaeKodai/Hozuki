@@ -7,7 +7,7 @@ using TMPro;
 public class PasswordLock : MonoBehaviour
 {
     
-    private bool isClear, inPlayer, isPlay, isFirst = true;
+    private bool isClear, inPlayer, isPlay;
     
     public string cursorSE = "カーソル移動";
     public string openSE = "鍵を開ける";

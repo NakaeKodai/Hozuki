@@ -188,11 +188,14 @@ public class GameManager : MonoBehaviour
 
     private void CheckIvent()
     {
-        if(director.state != PlayState.Playing && director.time == 0)
+        if(director != null)
         {
-            isIvent = false;
+            if(director.state != PlayState.Playing && director.time == 0)
+            {
+                isIvent = false;
+            }
+            else isIvent = true;
         }
-        else isIvent = true;
     }
 
     // private void OnApplicationQuit()
