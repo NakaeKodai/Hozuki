@@ -100,7 +100,8 @@ public class PushObject : MonoBehaviour
                 {
                     holeScript.setRock = true;
                     Debug.Log("消えるぜ");
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
+                    gameObject.SetActive(false);
                 }
             }
         }

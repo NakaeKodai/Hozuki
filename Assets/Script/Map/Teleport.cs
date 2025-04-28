@@ -27,6 +27,10 @@ public class Teleport : MonoBehaviour
 
     private RectTransform rectTransformMapInfo;
 
+    [Header("岩リセット用（いじる必要無し）")]
+    public bool resetRocks = false;//岩のリセットを行うか否か
+    private bool setFirstRocksPosition = true;//岩の位置初期保存するか否か
+
     void Update()
     {
         if(isAnimation)
@@ -60,6 +64,21 @@ public class Teleport : MonoBehaviour
             mapInfo.SetActive(true);
             mapInfoAnimator.SetTrigger("fade");
             isAnimation = true;
+
+            //岩運びリセット
+            if(resetRocks)
+            {
+                RockReset rockResetObject = GetComponent<RockReset>();
+                if(setFirstRocksPosition)
+                {
+                    rockResetObject.setRocksPosition();
+                    setFirstRocksPosition = false;
+                    Debug.Log("岩初期位置設定完了");
+                }
+
+                rockResetObject.resetRocks();
+                Debug.Log("岩リセット完了");
+            }
         }
     }
 

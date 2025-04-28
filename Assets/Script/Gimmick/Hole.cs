@@ -21,4 +21,11 @@ public class Hole : MonoBehaviour
     {
         Debug.Log("岩のオブジェクト判定できた");
     }
+
+    public void holeReset()
+    {
+        setRock = false;
+        //以下、グラフィックリセットしろ
+        
+    }
 }
