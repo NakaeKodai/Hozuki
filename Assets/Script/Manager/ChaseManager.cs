@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class ChaseManager : MonoBehaviour
 {
-    public static ChaseManager instance;
+    // public static ChaseManager instance;
 
     [SerializeField] private PlayerController playerController;
 
     public GameObject ghost;
 
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+    // private void Awake()
+    // {
+    //     if (instance == null) instance = this;
+    //     else Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject); // シーンが変わっても消えないようにする
-    }
+    //     DontDestroyOnLoad(gameObject); // シーンが変わっても消えないようにする
+    // }
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.isChaseTime)
-        {
-            SoundManager.instance.PlayChaseBGM();   
-            // SoundManager.instance.PlayBGM("追われる");
-            // SoundManager.instance.PlayBGM("耳鳴り");
-        }
-        else
-        {
-            SoundManager.instance.StopBGM();
-        }
         
     }
 

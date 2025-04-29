@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class SaveData //セーブ関係の変数
@@ -196,6 +197,15 @@ public class GameManager : MonoBehaviour
             }
             else isIvent = true;
         }
+    }
+
+    public void ResetCurrentScene()
+    {
+        // 現在のシーンを取得
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // 同じシーンを再読み込み
+        SceneManager.LoadScene(currentScene.name);
     }
 
     // private void OnApplicationQuit()

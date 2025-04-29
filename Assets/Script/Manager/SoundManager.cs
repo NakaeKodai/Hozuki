@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        StopBGM();
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
