@@ -5,7 +5,6 @@ using UnityEngine;
 public class Tracking : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
-    public GameManager gameManager;
     public bool canMove = true;
 
     NavMeshAgent2D agent; // NavMeshAgent2Dを使用するための変数
@@ -24,10 +23,10 @@ public class Tracking : MonoBehaviour
     void Update()
     {
         // 追跡モードなら
-        if (gameManager.isChaseTime)
+        if (GameManager.instance.isChaseTime)
         {
             // プレイヤーが動けるかつ、自分も動けるなら
-            if (!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
+            if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
             {
                 // 瞬間移動していなければ通常の目的地を設定
                 if (!playerController.isTeleport)
@@ -55,6 +54,13 @@ public class Tracking : MonoBehaviour
     // 当たり判定に当たったか(Collision)
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.instance.isChaseTime = false;
+            SoundManager.instance.StopBGM();
+            GameManager.instance.ResetCurrentScene();
+        }
+
         // 瞬間移動したら、プレイヤーが瞬間移動した判定をfalseにする
         if (other.gameObject.CompareTag("Teleport"))
         {
@@ -72,7 +78,7 @@ public class Tracking : MonoBehaviour
 // public class Tracking : MonoBehaviour
 // {
 //     [SerializeField] private PlayerController playerController;
-//     public GameManager gameManager;
+//     public GameManager.instance GameManager.instance;
 //     public bool canMove = true;
 
 //     NavMeshAgent2D agent; //NavMeshAgent2Dを使用するための変数
@@ -88,10 +94,10 @@ public class Tracking : MonoBehaviour
 //     void Update()
 //     {
 //         //追跡モードなら
-//         if(gameManager.isChaseTime)
+//         if(GameManager.instance.isChaseTime)
 //         {
 //             //プレイヤーが動けるかつ、自分も動けるなら
-//             if(!gameManager.isOpenMenu && !gameManager.isOtherMenu && canMove)
+//             if(!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu && canMove)
 //             {
 //                 //もし主人公が瞬間移動したら、瞬間移動した手前の位置を追いかける
 //                 //それ以外はプレイヤーを追いかける

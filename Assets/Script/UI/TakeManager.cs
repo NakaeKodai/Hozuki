@@ -7,8 +7,6 @@ using TMPro;
 public class TakeManager : MonoBehaviour
 {
     //アイテム入手の処理
-
-    public GameManager gameManager;
     public UIManager  uiManager;
     public BackpackManager backpackManager;
     [SerializeField] private TextMeshProUGUI talkText;
@@ -42,11 +40,11 @@ public class TakeManager : MonoBehaviour
 
         //テキスト内容のセット
         this.pickUPitem = pickUPitem;
-        gameManager.isOtherMenu = true;
+        GameManager.instance.isOtherMenu = true;
         isInfoText = false;
         talkText.text = pickUPitem.itemName + "を入手しました";
         itemImage.sprite = pickUPitem.itemImage;
-        gameManager.isOpenMenu = true;
+        GameManager.instance.isOpenMenu = true;
 
         //テキストの表示と制御の開始
         gameObject.SetActive(true);
@@ -76,8 +74,7 @@ public class TakeManager : MonoBehaviour
                 //Debug.Log("ぺーちゃくーちゃ");
 
                 //入手した時の画面を閉じる
-                if(gameManager.playerInputAction.UI.DecisionMenu.triggered 
-                || gameManager.playerInputAction.UI.CancelCloseMenu.triggered)
+                if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered || GameManager.instance.playerInputAction.UI.CancelCloseMenu.triggered)
                 {
                     //Debug.Log("次へ");
                     timer = 0.0f;
@@ -85,7 +82,7 @@ public class TakeManager : MonoBehaviour
                 }
 
                 //アイテムの詳細を表示
-                if(gameManager.playerInputAction.UI.InteractDetail.triggered)
+                if(GameManager.instance.playerInputAction.UI.InteractDetail.triggered)
                 {
                     if(isInfoText) //詳細が表示されている場合、「〇〇を入手しました」と表示
                     {
@@ -106,8 +103,8 @@ public class TakeManager : MonoBehaviour
             //timer = 0.0f;
             talkEnd = false;
             talkText.text = null;
-            gameManager.isOtherMenu = false;
-            gameManager.isOpenMenu = false;
+            GameManager.instance.isOtherMenu = false;
+            GameManager.instance.isOpenMenu = false;
             gameObject.SetActive(false);
             // if(!calledPlayer) uiManager.isMenuWindow = true;
         }

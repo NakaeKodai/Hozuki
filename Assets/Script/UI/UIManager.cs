@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
 
     //UIの処理　主にメニュー画面
 
-    public GameManager gameManager;
-
     public bool isMenuWindow; //メニュー画面を操作できるか
     public bool isSettingWindow; //設定画面を操作できるか
 
@@ -40,16 +38,16 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.isOpenMenu && !gameManager.isOtherMenu)
+        if (!GameManager.instance.isOpenMenu && !GameManager.instance.isOtherMenu)
         {
-            if (gameManager.playerInputAction.UI.OpenMenu.triggered)
+            if (GameManager.instance.playerInputAction.UI.OpenMenu.triggered)
             {
-                gameManager.isOpenMenu = true;
+                GameManager.instance.isOpenMenu = true;
                 OpenMenuWindow();
                 mapInfo1.SetActive(false);
             }
         }
-        else if(!gameManager.isOtherMenu)
+        else if(!GameManager.instance.isOtherMenu)
         {
             if(isMenuWindow)
             {
@@ -91,14 +89,14 @@ public class UIManager : MonoBehaviour
         }
         
         //メニューウィンドウを閉じる(強制)
-        if (gameManager.playerInputAction.UI.OpenMenu.triggered || gameManager.playerInputAction.UI.CloseMenu.triggered)
+        if (GameManager.instance.playerInputAction.UI.OpenMenu.triggered || GameManager.instance.playerInputAction.UI.CloseMenu.triggered)
         {
-            gameManager.isOpenMenu = false;
+            GameManager.instance.isOpenMenu = false;
             CloseMenuWindow();
         }
 
         //カール上移動
-        if (gameManager.playerInputAction.UI.CursorMoveUp.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -107,7 +105,7 @@ public class UIManager : MonoBehaviour
         }
 
         //カーソル下移動
-        if (gameManager.playerInputAction.UI.CursorMoveDown.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -116,7 +114,7 @@ public class UIManager : MonoBehaviour
         }
 
         // //カール左移動
-        // if (gameManager.playerInputAction.UI.CursorMoveLeft.triggered)
+        // if (GameManager.instance.playerInputAction.UI.CursorMoveLeft.triggered)
         // {
         //     nowCursorImage.SetActive(false);
         //     nowCursorNum--;
@@ -124,7 +122,7 @@ public class UIManager : MonoBehaviour
         // }
 
         // //カーソル右移動
-        // if (gameManager.playerInputAction.UI.CursorMoveRight.triggered)
+        // if (GameManager.instance.playerInputAction.UI.CursorMoveRight.triggered)
         // {
         //     nowCursorImage.SetActive(false);
         //     nowCursorNum++;
@@ -132,7 +130,7 @@ public class UIManager : MonoBehaviour
         // }
 
         // //カール上移動
-        // if (gameManager.playerInputAction.UI.CursorMoveUp.triggered)
+        // if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered)
         // {
         //     nowCursorImage.SetActive(false);
         //     nowCursorNum -= 2;
@@ -140,7 +138,7 @@ public class UIManager : MonoBehaviour
         // }
 
         // //カーソル下移動
-        // if (gameManager.playerInputAction.UI.CursorMoveDown.triggered)
+        // if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered)
         // {
         //     nowCursorImage.SetActive(false);
         //     nowCursorNum += 2;
@@ -148,7 +146,7 @@ public class UIManager : MonoBehaviour
         // }
 
         //メニューの選択
-        if(gameManager.playerInputAction.UI.DecisionMenu.triggered)
+        if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
         {
             SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
@@ -162,12 +160,12 @@ public class UIManager : MonoBehaviour
                     Debug.Log("話す");
                     // menuWindow.SetActive(false);
                     textWindow.SetActive(true);
-                    talkManager.Talk(playerTalkTopic.topicList[gameManager.playerTalkState].topic, false);
+                    talkManager.Talk(playerTalkTopic.topicList[GameManager.instance.playerTalkState].topic, false);
                     explain.SetActive(false);
                     break;
                 case 2:
                     Debug.Log("セーブ");
-                    // gameManager.Save();
+                    // GameManager.instance.Save();
                     break;
                 case 3:
                     Debug.Log("設定");
@@ -177,7 +175,7 @@ public class UIManager : MonoBehaviour
                     break;
                 // case 4:
                 //     Debug.Log("セーブ");
-                //     gameManager.Save();
+                //     GameManager.instance.Save();
                 //     break;
                 // case 5:
                 //     Debug.Log("タイトル");
@@ -207,7 +205,7 @@ public class UIManager : MonoBehaviour
                     break;
                 // case 4:
                 //     Debug.Log("セーブ");
-                //     gameManager.Save();
+                //     GameManager.instance.Save();
                 //     break;
                 // case 5:
                 //     Debug.Log("タイトル");

@@ -8,7 +8,6 @@ public class TalkManager : MonoBehaviour
 {
     //会話の処理
 
-    public GameManager gameManager;
     public UIManager  uiManager;
 
     [SerializeField] private GameObject explain;
@@ -35,7 +34,7 @@ public class TalkManager : MonoBehaviour
     public void Talk(List<string> talkTopic,bool calledPlayer)
     {
         //会話テキストのセット
-        gameManager.isOtherMenu = true;
+        GameManager.instance.isOtherMenu = true;
         talkPage = 0;
         this.talkTopic = talkTopic;
 
@@ -51,7 +50,7 @@ public class TalkManager : MonoBehaviour
         //メニューからなら終了時にメニューを表示させる
         this.calledPlayer = calledPlayer;
         if(!calledPlayer) uiManager.isMenuWindow = false;
-        else gameManager.isOpenMenu = true;
+        else GameManager.instance.isOpenMenu = true;
     }
 
     void Update()
@@ -88,7 +87,7 @@ public class TalkManager : MonoBehaviour
             else
             {
                 //Debug.Log("ぺーちゃくーちゃ");
-                if(gameManager.playerInputAction.UI.DecisionMenu.triggered)
+                if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
                 {
                     //Debug.Log("次へ");
                     talkPage++;
@@ -107,7 +106,7 @@ public class TalkManager : MonoBehaviour
             timer = 0.0f;
             talkEnd = false;
             talkText.text = null;
-            gameManager.isOtherMenu = false;
+            GameManager.instance.isOtherMenu = false;
             gameObject.SetActive(false);
             operation.SetActive(false);
             if(!calledPlayer)
@@ -116,7 +115,7 @@ public class TalkManager : MonoBehaviour
                 // explain.SetActive(true);
                 uiManager.OpenMenuWindow();
             }
-            else gameManager.isOpenMenu = false;
+            else GameManager.instance.isOpenMenu = false;
         }
     }
 }

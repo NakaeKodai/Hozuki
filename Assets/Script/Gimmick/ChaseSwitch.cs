@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChaseSwitch : MonoBehaviour
 {
+    [SerializeField] private ChaseManager chaseManager;
+
     [Header("追われるようにするならTrue、追われるのをやめるならFalse")]
     public bool cahseSwitch;
     public GameObject ghost;
@@ -29,7 +31,8 @@ public class ChaseSwitch : MonoBehaviour
             {
                 Debug.Log("チェイス開始");
                 GameManager.instance.isChaseTime = true;
-                ChaseManager.instance.ResetTarget();
+                chaseManager.ResetTarget();
+                SoundManager.instance.PlayChaseBGM();
                 ghostNav.speed = speed;
                 ghost.SetActive(true);
             }
@@ -37,7 +40,8 @@ public class ChaseSwitch : MonoBehaviour
             {
                 Debug.Log("チェイス終了");
                 GameManager.instance.isChaseTime = false;
-                ChaseManager.instance.MoveLocation(ghostX,ghostY);
+                chaseManager.MoveLocation(ghostX,ghostY);
+                SoundManager.instance.StopBGM();
                 ghost.SetActive(false);
             }
 

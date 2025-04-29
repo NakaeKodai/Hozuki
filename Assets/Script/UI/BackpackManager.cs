@@ -8,7 +8,6 @@ public class BackpackManager : MonoBehaviour
 {
     //持ち物の管理全般
 
-    public GameManager gameManager;
     public UIManager  uiManager;
     public ItemManager itemManager;
     public GameObject itemPrefab;
@@ -99,7 +98,7 @@ public class BackpackManager : MonoBehaviour
     void Update()
     {
         //メニューを再び開く、または戻るボタンを押すと、BackPackメニューが閉じて、メニューが開く
-        if (gameManager.playerInputAction.UI.OpenMenu.triggered)
+        if (GameManager.instance.playerInputAction.UI.OpenMenu.triggered)
         {
             selectUse.SetActive(false);
             selectUseFlug = false;
@@ -111,7 +110,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //もどるボタンの処理
-        if(gameManager.playerInputAction.UI.CloseMenu.triggered)
+        if(GameManager.instance.playerInputAction.UI.CloseMenu.triggered)
         {
             SoundManager.instance.PlaySE(cancelSE);
             if(selectUseFlug)//アイテム使用確認ウインドウ
@@ -133,7 +132,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //アイテムを開いていたら情報を、情報を開いていたらアイテムを開く
-        if ((gameManager.playerInputAction.UI.PageMoveRight.triggered || gameManager.playerInputAction.UI.PageMoveLeft.triggered) && !selectUseFlug && !showImageFlug)
+        if ((GameManager.instance.playerInputAction.UI.PageMoveRight.triggered || GameManager.instance.playerInputAction.UI.PageMoveLeft.triggered) && !selectUseFlug && !showImageFlug)
         {
             SoundManager.instance.PlaySE(cursorSE);
             if(isItemView) isItemView = false;
@@ -166,7 +165,7 @@ public class BackpackManager : MonoBehaviour
                     selectUseCursor();//カーソル移動
 
                     //決定ボタンで選択
-                    if(gameManager.playerInputAction.UI.DecisionMenu.triggered)
+                    if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
                     {
                         if(selectUseConfirmation)//使う
                         {
@@ -209,7 +208,7 @@ public class BackpackManager : MonoBehaviour
                 {
                     SelectControlItem();
                     //アイテム使用確認ウインドウを開く
-                    if(gameManager.playerInputAction.UI.DecisionMenu.triggered){
+                    if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered){
                         // 「使う」と書かれたテキストの色変え
                         useType = itemManager.SearchTypeText(itemTextInfo_Item.text);
                         if(useType == "NOUSE")
@@ -316,7 +315,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //カーソル上移動
-        if (gameManager.playerInputAction.UI.CursorMoveUp.triggered && content_Item.childCount > 1)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered && content_Item.childCount > 1)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Item.SetActive(false);
@@ -346,7 +345,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //カーソル下移動
-        if (gameManager.playerInputAction.UI.CursorMoveDown.triggered && content_Item.childCount > 1)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered && content_Item.childCount > 1)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Item.SetActive(false);
@@ -390,7 +389,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //カーソル上移動
-        if (gameManager.playerInputAction.UI.CursorMoveUp.triggered && content_Info.childCount > 1)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered && content_Info.childCount > 1)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Info.SetActive(false);
@@ -420,7 +419,7 @@ public class BackpackManager : MonoBehaviour
         }
 
         //カーソル下移動
-        if (gameManager.playerInputAction.UI.CursorMoveDown.triggered && content_Info.childCount > 1)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered && content_Info.childCount > 1)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage_Info.SetActive(false);
@@ -449,7 +448,7 @@ public class BackpackManager : MonoBehaviour
     private void selectUseCursor()
     {
         //カーソル移動（上下どっちも同じ）
-        if (gameManager.playerInputAction.UI.CursorMoveUp.triggered || gameManager.playerInputAction.UI.CursorMoveDown.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered || GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             if(selectUseConfirmation)

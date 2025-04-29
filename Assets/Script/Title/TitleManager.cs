@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-
-    public PlayerInputAction playerInputAction; //inputSystemの変数
-
     public enum TitleStatus
     {
         START,
@@ -47,8 +44,6 @@ public class TitleManager : MonoBehaviour
     void Start()
     {
         status = TitleStatus.START;
-        playerInputAction = new PlayerInputAction();
-        playerInputAction.Enable();
     }
 
     // Update is called once per frame
@@ -77,7 +72,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //カール上移動
-        if (playerInputAction.UI.CursorMoveUp.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -86,7 +81,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //カーソル下移動
-        if (playerInputAction.UI.CursorMoveDown.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -95,7 +90,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //メニューの選択
-        if(playerInputAction.UI.DecisionMenu.triggered)
+        if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
         {
             SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
@@ -150,7 +145,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //カール上移動
-        if (playerInputAction.UI.CursorMoveUp.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveUp.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -159,7 +154,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //カーソル下移動
-        if (playerInputAction.UI.CursorMoveDown.triggered)
+        if (GameManager.instance.playerInputAction.UI.CursorMoveDown.triggered)
         {
             SoundManager.instance.PlaySE(cursorSE);
             nowCursorImage.SetActive(false);
@@ -168,7 +163,7 @@ public class TitleManager : MonoBehaviour
         }
 
         //メニューの選択
-        if(playerInputAction.UI.DecisionMenu.triggered)
+        if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
         {
             SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
