@@ -16,7 +16,7 @@ public class ReadObject : MonoBehaviour
     void Update()
     {
         if(canTalk && !GameManager.instance.isOtherMenu)
-            {
+        {
             //操作説明
             if(GameManager.controllerType == GameManager.ControllerType.Unknown)
             {

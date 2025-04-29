@@ -10,6 +10,7 @@ TagManager:
   - PushObject
   - HoleObject
   - NoPush
+  - HideObject
   layers:
   - Default
   - TransparentFX
