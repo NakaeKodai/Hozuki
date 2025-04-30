@@ -12,9 +12,9 @@ public class QTERepeatedhits : MonoBehaviour
 
     public GameObject QTEObject;
     public Image QTEGauge;
-    private Color maxColor = new Color(0f,1f,0f,1f);
-    private Color harfColor = new Color(1f,1f,0f,1f);
-    private Color quarterColor = new Color(1f,0f,0f,1f);
+    private Color maxColor = new Color(0.6f,0f,0f,1f);
+    private Color harfColor = new Color(0.7f,0.7f,0f,1f);
+    private Color quarterColor = new Color(0.6f,0f,0f,1f);
 
     public PlayerController playerScript;//プレイヤーのスクリプト
     public GameManager gameManager;
@@ -69,16 +69,16 @@ public class QTERepeatedhits : MonoBehaviour
                 this.gameObject.SetActive(false);
                 QTEObject.SetActive(false);
             }
-            else if(rockNowHP <= rockHP/4)
+            else if(rockNowHP <= rockHP/3)
             {
                 QTEGauge.color = quarterColor;
                 Debug.Log("赤色");
             }
-            else if(rockNowHP <= rockHP/2)
-            {
-                QTEGauge.color = harfColor;
-                Debug.Log("黄色");
-            }
+            // else if(rockNowHP <= rockHP/2)
+            // {
+            //     QTEGauge.color = harfColor;
+            //     Debug.Log("黄色");
+            // }
             
         }
         //QTEが開始していなければ開始する
