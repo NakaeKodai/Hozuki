@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    public float startTime = 3.0f; // タイマー開始時間（秒）
+    private float currentTime;
+    private bool timerFinished = false;
+
     public enum TitleStatus
     {
         START,
@@ -43,19 +47,34 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = startTime;
+        timerFinished = false;
         status = TitleStatus.START;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(status == TitleStatus.START)
+        if(timerFinished)
         {
-            StartControl();
+            if(status == TitleStatus.START)
+            {
+                StartControl();
+            }
+            else  if(status == TitleStatus.CHARASELECT)
+            {
+                CharaSelectControl();
+            }
         }
-        else  if(status == TitleStatus.CHARASELECT)
+        else
         {
-            CharaSelectControl();
+            currentTime -= Time.deltaTime;
+            if (currentTime <= 0f)
+            {
+                currentTime = 0f;
+                timerFinished = true;
+                Debug.Log("タイマー終了");
+            }
         }
         
     }
@@ -92,6 +111,8 @@ public class TitleManager : MonoBehaviour
         //メニューの選択
         if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
         {
+            currentTime = startTime;
+            timerFinished = false;
             SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
             {
@@ -165,19 +186,30 @@ public class TitleManager : MonoBehaviour
         //メニューの選択
         if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered)
         {
+            currentTime = startTime;
+            timerFinished = false;
             SoundManager.instance.PlaySE(decisionSE);
             switch(nowCursorNum)
             {
                 case 0:
                     Debug.Log("走力ちゃん");
+                    GameManager.charactor = GameManager.Charactor.RUNNER;
+                    GameManager.instance.HP = 5;
+                    GameManager.instance.MaxHP = 5;
                     StartCoroutine(ChengeScene("Runner"));
                     break;
                 case 1:
                     Debug.Log("知力くん");
+                    GameManager.charactor = GameManager.Charactor.INTELLI;
+                    GameManager.instance.HP = 3;
+                    GameManager.instance.MaxHP = 3;
                     StartCoroutine(ChengeScene("Intelli"));
                     break;
                 case 2:
                     Debug.Log("筋力くん");
+                    GameManager.charactor = GameManager.Charactor.POWER;
+                    GameManager.instance.HP = 5;
+                    GameManager.instance.MaxHP = 5;
                     StartCoroutine(ChengeScene("Power"));
                     break;
                 case 3:

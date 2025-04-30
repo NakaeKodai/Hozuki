@@ -31,6 +31,17 @@ public class GameManager : MonoBehaviour
 
     public static ControllerType controllerType = ControllerType.Unknown;
 
+    public enum Charactor
+    {
+        NONE,
+        RUNNER,
+        INTELLI,
+        POWER
+    }
+
+    public static Charactor charactor = Charactor.NONE;
+    public int HP,MaxHP;
+
     string[] controllerName;
 
     //セーブ関連
@@ -58,6 +69,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if(currentScene.name == "Runner") charactor = Charactor.RUNNER;
+        if(currentScene.name == "Intelli") charactor = Charactor.INTELLI;
+        if(currentScene.name == "Power") charactor = Charactor.POWER;
         playerTalkState = 0; //会話内容の初期化(デモ版仕様)
         //Load();
         playerInputAction = new PlayerInputAction();
@@ -201,11 +216,18 @@ public class GameManager : MonoBehaviour
 
     public void ResetCurrentScene()
     {
-        // 現在のシーンを取得
-        Scene currentScene = SceneManager.GetActiveScene();
+        if(HP <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            // 現在のシーンを取得
+            Scene currentScene = SceneManager.GetActiveScene();
 
-        // 同じシーンを再読み込み
-        SceneManager.LoadScene(currentScene.name);
+            // 同じシーンを再読み込み
+            SceneManager.LoadScene(currentScene.name);
+        }
     }
 
     // private void OnApplicationQuit()

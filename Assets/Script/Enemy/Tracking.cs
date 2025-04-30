@@ -56,6 +56,7 @@ public class Tracking : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameManager.instance.HP--;
             GameManager.instance.isChaseTime = false;
             SoundManager.instance.StopBGM();
             GameManager.instance.ResetCurrentScene();

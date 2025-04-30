@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298c6d3f54127c74b9d8e8d30914b14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTime: 3
   status: 0
   logoAnimation: {fileID: 960516613}
   startPanel: {fileID: 1934059778}
@@ -826,7 +827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u30B2\u30FC\u30E0\u3092\u958B\u59CB\u3057\u307E\u3059"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9b15aa234af95a4696d3812e07f7749, type: 2}
   m_sharedMaterial: {fileID: 7226525182967381622, guid: b9b15aa234af95a4696d3812e07f7749, type: 2}
@@ -1007,6 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a0047d3c51a304db8c33a7ea27b82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 0
+  MaxHP: 0
   player: {fileID: 0}
   settingManager: {fileID: 0}
   lightImage: {fileID: 0}

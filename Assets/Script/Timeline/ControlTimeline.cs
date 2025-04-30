@@ -20,6 +20,11 @@ public class ControlTimeline : MonoBehaviour
     public Animator targetAnimator;
     public RuntimeAnimatorController defaultController;
 
+    void Start()
+    {
+        GameManager.instance.director = director;
+    }
+
     void Update()
     {
         if(GameManager.instance.playerInputAction.UI.DecisionMenu.triggered && waitingForInput)
