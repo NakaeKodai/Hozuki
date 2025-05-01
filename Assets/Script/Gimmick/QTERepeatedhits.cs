@@ -12,13 +12,14 @@ public class QTERepeatedhits : MonoBehaviour
 
     public GameObject QTEObject;
     public Image QTEGauge;
-    private Color maxColor = new Color(0.6f,0f,0f,1f);
+    private Color maxColor = new Color(1f,1f,1f,1f);
     private Color harfColor = new Color(0.7f,0.7f,0f,1f);
     private Color quarterColor = new Color(0.6f,0f,0f,1f);
 
     public PlayerController playerScript;//プレイヤーのスクリプト
     public GameManager gameManager;
     
+    private bool canQTE = false;//QTEにプレイヤーが触れているか
     private bool nowQTE = false;//QTEが進行中
     private bool nowCoolDown = false;
     private float coolDownTime = 0.1f;
@@ -82,7 +83,7 @@ public class QTERepeatedhits : MonoBehaviour
             
         }
         //QTEが開始していなければ開始する
-        else
+        else if(canQTE)
         {
             if(gameManager.playerInputAction.Player.ActionANDDecision.triggered)
             {
@@ -99,4 +100,23 @@ public class QTERepeatedhits : MonoBehaviour
         }
     }
 
+    //当たり判定に当たったか(Collision)
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("壊せるででで");
+            canQTE = true;
+        }
+    }
+
+        //当たり判定から出たか(Collision)
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("壊せぬぬ");
+            canQTE = false;
+        }
+    }
 }
