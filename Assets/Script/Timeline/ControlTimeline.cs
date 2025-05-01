@@ -15,10 +15,11 @@ public class ControlTimeline : MonoBehaviour
     public PlayableDirector director;
     private bool waitingForInput = false;
 
+    [Header("タイムライン中のアニメーションを固定したいオブジェクトを入れてね")]
     public List<TimelineControlAnimation> timelineControlAnimation = new List<TimelineControlAnimation>();
 
-    public Animator targetAnimator;
-    public RuntimeAnimatorController defaultController;
+    // public Animator targetAnimator;
+    // public RuntimeAnimatorController defaultController;
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class ControlTimeline : MonoBehaviour
 
         for(int i = 0;i < timelineControlAnimation.Count;i++)
         {
-            if(targetAnimator != null)
+            if(timelineControlAnimation[i].targetAnimator != null)
             {
                 timelineControlAnimation[i].targetAnimator.runtimeAnimatorController = null;
             }

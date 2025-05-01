@@ -70,9 +70,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        if(currentScene.name == "Runner") charactor = Charactor.RUNNER;
-        if(currentScene.name == "Intelli") charactor = Charactor.INTELLI;
-        if(currentScene.name == "Power") charactor = Charactor.POWER;
+        if(currentScene.name == "Runner")
+        {
+            charactor = Charactor.RUNNER;
+            HP = 5;
+            MaxHP = 5;
+        }
+        if(currentScene.name == "Intelli")
+        {
+            charactor = Charactor.INTELLI;
+            HP = 3;
+            MaxHP = 3;
+        }
+        if(currentScene.name == "Power")
+        {
+            charactor = Charactor.POWER;
+            HP = 5;
+            MaxHP = 5;
+        }
         playerTalkState = 0; //会話内容の初期化(デモ版仕様)
         //Load();
         playerInputAction = new PlayerInputAction();
