@@ -32,6 +32,10 @@ public class TitleManager : MonoBehaviour
     public GameObject charaSelectPanel;
     public Animator charaPanelAnimator;
 
+    public GameObject charaImageBackGround;
+    public Image charaImage;
+    public List<Sprite> charaImageList;
+
     public GameObject blackoutPanel;
     public Animator blackoutAnimator;
 
@@ -121,6 +125,7 @@ public class TitleManager : MonoBehaviour
                     status = TitleStatus.CHARASELECT;
                     startPanel.SetActive(false);
                     startExplain.SetActive(false);
+                    charaImageBackGround.SetActive(true);
                     charaSelectPanel.SetActive(true);
                     charaExplain.SetActive(true);
                     charaPanelAnimator.SetTrigger("FadeIn");
@@ -158,6 +163,7 @@ public class TitleManager : MonoBehaviour
     {
         if(beforeCursorNum != nowCursorNum)
         {
+            if(nowCursorNum != charaSelectPanel.transform.childCount - 1) charaImage.sprite = charaImageList[nowCursorNum];
             nowCursor = charaSelectPanel.transform.GetChild(nowCursorNum).gameObject;
             nowCursorImage = nowCursor.transform.GetChild(0).gameObject;
             beforeCursorNum = nowCursorNum;
@@ -215,6 +221,7 @@ public class TitleManager : MonoBehaviour
                 case 3:
                     Debug.Log("戻る");
                     status = TitleStatus.START;
+                    charaImageBackGround.SetActive(false);
                     charaSelectPanel.SetActive(false);
                     charaExplain.SetActive(false);
                     startPanel.SetActive(true);
