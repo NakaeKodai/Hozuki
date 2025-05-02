@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     public bool isOpenMenu; //メニューを開いているかどうか
     public bool isOtherMenu; //メニュー以外のUIをほらいているかどうか
     public bool isChaseTime; //敵に追われているか
+    public bool isHide; //隠れているかどうか
 
     public PlayableDirector director;
     public bool isIvent;

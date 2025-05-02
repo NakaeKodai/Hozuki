@@ -61,7 +61,7 @@ public class HideObject : MonoBehaviour
         {
             if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
             {
-                isHide = false;
+                GameManager.instance.isHide = false;
                 //StartCoroutine(EndHideTimeline(150));
             }
         }
@@ -78,7 +78,7 @@ public class HideObject : MonoBehaviour
         animator.SetTrigger("Hide");
         // hideDirectorObject.SetActive(true);
         hideDirector.Play();
-        isHide = true;
+        GameManager.instance.isHide = true;
     }
 
 

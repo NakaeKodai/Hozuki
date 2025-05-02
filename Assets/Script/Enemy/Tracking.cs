@@ -7,6 +7,8 @@ public class Tracking : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     public bool canMove = true;
 
+    public bool hide_Success;
+
     NavMeshAgent2D agent; // NavMeshAgent2Dを使用するための変数
     [SerializeField] Transform target; // 追跡するターゲット
     [SerializeField] Transform spareTarget; // 瞬間移動後の追跡対象
@@ -38,6 +40,12 @@ public class Tracking : MonoBehaviour
                     agent.destination = spareTarget.position;
                 }
 
+                if(GameManager.instance.isHide && playerController.isTeleport)
+                {
+                    hide_Success = true;
+                    StartCoroutine(EndTracking());
+                }
+
                 // 移動方向に応じたアニメーション制御
                 Vector2 moveDirection = agent.CurrentDirection;
                 float xDir = moveDirection.x;
@@ -51,10 +59,19 @@ public class Tracking : MonoBehaviour
         }
     }
 
+    IEnumerator EndTracking()
+    {
+        yield return new WaitForSeconds(5);
+        GameManager.instance.isChaseTime = false;
+        SoundManager.instance.StopBGM();
+        hide_Success = false;
+        gameObject.SetActive(false);
+    }
+
     // 当たり判定に当たったか(Collision)
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !hide_Success)
         {
             GameManager.instance.HP--;
             GameManager.instance.isChaseTime = false;
