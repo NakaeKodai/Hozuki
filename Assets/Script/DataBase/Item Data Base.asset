@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemList:
   - itemID: 0
-    itemName: "\u30A2\u30A4\u30C6\u30E0\u624B\u306B\u5165\u308B"
+    itemName: "\u624B\u306B\u5165\u3089\u306A\u3044\u30DE\u30F3"
     itemImage: {fileID: 7482667652216324306, guid: af17b6e7826e1034190fe7a946c455fb, type: 3}
     haveStatus: 0
     useType: 2
-    itemInfo: test message
+    itemInfo: "\u9375\u3092\u639B\u3051\u308B\u3082\u306E"
     showImage: {fileID: 0}
     getItemName: getItem.exe
   - itemID: 256
@@ -64,7 +64,7 @@ MonoBehaviour:
   - itemID: 5
     itemName: "\u30E9\u30A4\u30BF\u30FC"
     itemImage: {fileID: -2413806693520163455, guid: 3413bc1f6b6bb9f478019c8e63033f3f, type: 3}
-    haveStatus: 1
+    haveStatus: 0
     useType: 0
     itemInfo: 
     showImage: {fileID: 0}

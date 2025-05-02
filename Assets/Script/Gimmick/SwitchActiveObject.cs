@@ -14,7 +14,7 @@ public class SwitchActiveObject : MonoBehaviour
             {
                 switchObject[i].SetActive(true);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
