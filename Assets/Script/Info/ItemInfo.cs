@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -42,15 +43,17 @@ public class ItemInfo : MonoBehaviour
             if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
             {
                 takeManager.TakeItem(ItemManager.instance.PickUp(itemID));
-                DestroyObject();
+                StartCoroutine(DestroyObject());
             }
         }
     }
 
 
     //自分をデストロイする
-    public void DestroyObject()
+    IEnumerator DestroyObject()
     {
+        yield return null;
+        
         Destroy(gameObject);
     }
 

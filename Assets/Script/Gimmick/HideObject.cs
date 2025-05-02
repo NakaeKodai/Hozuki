@@ -49,7 +49,7 @@ public class HideObject : MonoBehaviour
                 operationText.text = "B : 隠れる";
             }
 
-            if(!isHide)
+            if(!isHide && !GameManager.instance.isIvent)
             {
                 if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
                 {
@@ -62,7 +62,7 @@ public class HideObject : MonoBehaviour
             if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
             {
                 isHide = false;
-                StartCoroutine(EndHideTimeline(150));
+                //StartCoroutine(EndHideTimeline(150));
             }
         }
         
@@ -76,7 +76,8 @@ public class HideObject : MonoBehaviour
         hideEndPoint.transform.position = new Vector3(gameObject.transform.position.x,gameObject.transform.position.y, 0);
         Debug.Log("隠れる");
         animator.SetTrigger("Hide");
-        hideDirectorObject.SetActive(true);
+        // hideDirectorObject.SetActive(true);
+        hideDirector.Play();
         isHide = true;
     }
 

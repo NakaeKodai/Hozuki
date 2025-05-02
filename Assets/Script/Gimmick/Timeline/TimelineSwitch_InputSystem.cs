@@ -10,6 +10,9 @@ public class TimelineSwitch_InputSystem : MonoBehaviour
     public GameObject playTimeline;
     public ControlTimeline controlTimeline;
 
+    [Header("一瞬タイムラインを遅らせたいならTrueにしてください")]
+    public bool isWait;
+
     [Header("一度だけタイムラインを流したいならTrue、何回でも流したいならFalse")]
     public bool onlyOnce;
 
@@ -17,14 +20,25 @@ public class TimelineSwitch_InputSystem : MonoBehaviour
     {
         if(canPlay && GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
         {
-            StartCoroutine(PlayTimeline());
+            if(isWait) StartCoroutine(PlayTimeline_Coroutine());
+            else PlayTimeline();
         }
         
     }
 
-    IEnumerator PlayTimeline()
+    IEnumerator PlayTimeline_Coroutine()
     {
         yield return null;
+        Debug.Log("タイムライン開始");
+        GameManager.instance.director = director;
+        controlTimeline.director = director;
+        playTimeline.SetActive(true);
+
+        if(onlyOnce) Destroy(gameObject);
+    }
+
+    private void PlayTimeline()
+    {
         Debug.Log("タイムライン開始");
         GameManager.instance.director = director;
         controlTimeline.director = director;

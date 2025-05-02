@@ -48,8 +48,24 @@ MonoBehaviour:
   - itemID: 3
     itemName: "1-2\u306E\u30AB\u30AE"
     itemImage: {fileID: -125511043, guid: 0e20c8320054fe34292cffdb348bfc10, type: 3}
-    haveStatus: 1
+    haveStatus: 0
     useType: 0
     itemInfo: "1-2\u306E\u30AB\u30AE"
+    showImage: {fileID: 0}
+    getItemName: 
+  - itemID: 4
+    itemName: "\u7206\u7AF9"
+    itemImage: {fileID: -2413806693520163455, guid: 3413bc1f6b6bb9f478019c8e63033f3f, type: 3}
+    haveStatus: 0
+    useType: 0
+    itemInfo: 
+    showImage: {fileID: 0}
+    getItemName: 
+  - itemID: 5
+    itemName: "\u30E9\u30A4\u30BF\u30FC"
+    itemImage: {fileID: -2413806693520163455, guid: 3413bc1f6b6bb9f478019c8e63033f3f, type: 3}
+    haveStatus: 1
+    useType: 0
+    itemInfo: 
     showImage: {fileID: 0}
     getItemName: 
