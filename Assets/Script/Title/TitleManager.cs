@@ -240,7 +240,7 @@ public class TitleManager : MonoBehaviour
                     charaExplainText.text = "ナゾ解きが主なゲーム内容となっています";
                     break;
                 case 2:
-                    charaExplainText.text = "筋力くんが主なゲーム内容となっています";
+                    charaExplainText.text = "パズルとQTEが主なゲーム内容となっています";
                     break;
                 case 3:
                     charaExplainText.text = "タイトル画面にもどります";
