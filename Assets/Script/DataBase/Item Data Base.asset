@@ -69,3 +69,11 @@ MonoBehaviour:
     itemInfo: 
     showImage: {fileID: 0}
     getItemName: 
+  - itemID: 901
+    itemName: "3-1\u306E\u30AB\u30AE"
+    itemImage: {fileID: -125511043, guid: 0e20c8320054fe34292cffdb348bfc10, type: 3}
+    haveStatus: 0
+    useType: 0
+    itemInfo: "3-1\u306E\u30AB\u30AE"
+    showImage: {fileID: 0}
+    getItemName: 
