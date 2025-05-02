@@ -108,7 +108,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3053\u308C\u3067\u4E0B\u306B\u964D\u308A\u308C\u308B\uFF01"
+    text: "\u3053\u308C\u30672\u968E\u306B\u884C\u3051\u308B\uFF01"
 --- !u!114 &-365973677657138653
 MonoBehaviour:
   m_ObjectHideFlags: 1
