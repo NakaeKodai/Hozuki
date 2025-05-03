@@ -124,7 +124,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3053\u308C\u3067\u7206\u7AF9\u304C\u4F7F\u3048\u308B\uFF01"
+    text: "\u3053\u308C\u304C\u3042\u308C\u3070\u3001\u7206\u7AF9\u304C\u4F7F\u3048\u308B\uFF01"
 --- !u!114 &-365973677657138653
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,6 +296,6 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "\u3053\u308C\u3067\u7206\u7AF9\u304C\u4F7F\u3048\u308B\uFF01"
+    m_DisplayName: "\u3053\u308C\u304C\u3042\u308C\u3070\u3001\u7206\u7AF9\u304C\u4F7F\u3048\u308B\uFF01"
   m_Markers:
     m_Objects: []
