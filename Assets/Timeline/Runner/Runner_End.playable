@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 6f28433df6df8d941bafc3a69fd04a7f, type: 2}
+  m_Clip: {fileID: 7400000, guid: ce75b540086db92409b1d3b7b58323f6, type: 2}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -1603,7 +1603,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: Runner_IdleF
+    m_DisplayName: Power_MoveF
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
