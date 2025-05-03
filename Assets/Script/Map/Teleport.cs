@@ -31,6 +31,10 @@ public class Teleport : MonoBehaviour
     public bool resetRocks = false;//岩のリセットを行うか否か
     private bool setFirstRocksPosition = true;//岩の位置初期保存するか否か
 
+    [Header("オブジェクト表示用（いじる必要無し）")]
+    public bool resetOthers = false;//オブジェクト表示を行うか否か
+    public bool sets = true;//trueで後半用、falseで前半用
+
     void Update()
     {
         if(isAnimation)
@@ -78,6 +82,14 @@ public class Teleport : MonoBehaviour
 
                 rockResetObject.resetRocks();
                 Debug.Log("岩リセット完了");
+            }
+
+            //オブジェクト表示
+            if(resetOthers)
+            {
+                ResetOther resetOthersObject = GetComponent<ResetOther>();
+                resetOthersObject.SetActiveObjects(sets);
+                Debug.Log("オブジェクトセット完了");
             }
         }
     }

@@ -14,17 +14,6 @@ public class RockReset : MonoBehaviour
     public List<rocks> rockList = new List<rocks>();//岩を保存するリスト
     public List<GameObject> holeList = new List<GameObject>();//穴を保存するリスト
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //岩をリセットする
     public void resetRocks()
