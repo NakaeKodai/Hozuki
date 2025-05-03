@@ -27,7 +27,9 @@ public class ResetOther : MonoBehaviour
     {
         for(int i = 0; i < otherObjects.Count; i++)
         {
-            if(set)
+            if(otherObjects[i] != null)
+            {
+                if(set)
             {
                 otherObjects[i].SetActive(true);
             }
@@ -35,10 +37,14 @@ public class ResetOther : MonoBehaviour
             {
                 otherObjects[i].SetActive(false);
             }
+            }
+            
         }
         for(int i = 0; i < hideObjects.Count; i++)
         {
-            if(set)
+            if(hideObjects[i] != null)
+            {
+                if(set)
             {
                 hideObjects[i].SetActive(false);
             }
@@ -46,6 +52,8 @@ public class ResetOther : MonoBehaviour
             {
                 hideObjects[i].SetActive(true);
             }
+            }
+            
         }
     }
 }

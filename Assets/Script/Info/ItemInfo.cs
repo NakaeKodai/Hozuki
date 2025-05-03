@@ -18,6 +18,10 @@ public class ItemInfo : MonoBehaviour
     [SerializeField] private GameObject operation;
     [SerializeField] private TextMeshProUGUI operationText;
 
+    [Header("アイテム入手でオブジェクト削除（突貫工事）")]
+    public bool falses = false;
+    public GameObject g;
+
     void Update()
     {
         if(canGet)
@@ -43,6 +47,10 @@ public class ItemInfo : MonoBehaviour
             if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
             {
                 takeManager.TakeItem(ItemManager.instance.PickUp(itemID));
+                if(falses)
+                {
+                    g.SetActive(false);
+                }
                 StartCoroutine(DestroyObject());
             }
         }

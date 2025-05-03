@@ -98,7 +98,8 @@ public class PushObject : MonoBehaviour
                 //穴に入った時落とす処理
                 if(holeIn)
                 {
-                    holeScript.setRock = true;
+                    holeScript.holeInRock();
+                    // holeScript.setRock = true;
                     Debug.Log("消えるぜ");
                     // Destroy(gameObject);
                     gameObject.SetActive(false);
@@ -182,8 +183,12 @@ public class PushObject : MonoBehaviour
         if(other.gameObject.CompareTag("HoleObject"))
         {
             Debug.Log("穴判定した(Enter)");
-            holeIn = true;
+            
             holeScript = other.GetComponent<Hole>();
+            if(!holeScript.setRock)
+            {
+                holeIn = true;
+            }
             // holeScript.a();
         }
     }
@@ -202,7 +207,7 @@ public class PushObject : MonoBehaviour
         if(other.gameObject.CompareTag("HoleObject"))
         {
             Debug.Log("穴判定した(Stay)");
-            holeIn = true;
+            // holeIn = true;
             // holeScript = other.GetComponent<Hole>();
             // holeScript.a();
         }

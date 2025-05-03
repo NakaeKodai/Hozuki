@@ -46,6 +46,7 @@ public class TimelineSwitch_KeyItem : MonoBehaviour
                             GameManager.instance.director = director;
                             controlTimeline.director = director;
                             playTimeline.SetActive(true);
+                            director.Play();
                             break;
                         }
                     }
