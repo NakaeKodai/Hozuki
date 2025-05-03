@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 4.916665199999987
+  m_Time: 4.1166651999999875
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 9.749999999999996
+    m_Start: 7.199999999999995
     m_ClipIn: 0
     m_Asset: {fileID: 6859263064986703449}
     m_Duration: 0.666666666666667
@@ -185,7 +185,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 16.33333333333335
+    m_Start: 13.75000000000003
     m_ClipIn: 0
     m_Asset: {fileID: -2896577486937768788}
     m_Duration: 1.35
@@ -254,7 +254,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 12.416666666666668
+    m_Start: 9.833333333333336
     m_ClipIn: 0
     m_Asset: {fileID: -2672870596988480819}
     m_Duration: 2.5333325999999974
@@ -323,7 +323,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 15.400000366666681
+    m_Start: 12.816667033333356
     m_ClipIn: 0
     m_Asset: {fileID: -1354838993809694252}
     m_Duration: 0.4333329666666579
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 1.6666666666666667
+    m_Start: 0.8666666666666668
     m_ClipIn: 0
     m_Asset: {fileID: -8771482647310684137}
     m_Duration: 0.7499999999999996
@@ -461,10 +461,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 4.666665566666655
+    m_Start: 3.8666655666666556
     m_ClipIn: 0
     m_Asset: {fileID: 8028151864568468463}
-    m_Duration: 0.7499999999999996
+    m_Duration: 1.416667766666678
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6762742385815219947}
     m_EaseInDuration: 0
@@ -530,10 +530,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
   - m_Version: 1
-    m_Start: 5.666666666666667
+    m_Start: 5.616666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 9044038813685490584}
-    m_Duration: 0.7499999999999996
+    m_Duration: 0.666666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -6762742385815219947}
     m_EaseInDuration: 0
@@ -601,28 +601,6 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
---- !u!114 &-6536190477370138190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
-  m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 7400000, guid: 6f28433df6df8d941bafc3a69fd04a7f, type: 2}
-  m_Position: {x: 0, y: 0, z: 0}
-  m_EulerAngles: {x: 0, y: 0, z: 0}
-  m_UseTrackMatchFields: 1
-  m_MatchTargetFields: 63
-  m_RemoveStartOffset: 1
-  m_ApplyFootIK: 1
-  m_Loop: 0
-  m_Version: 1
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &-6314815999337998984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -704,7 +682,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3093\u301C\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C\u2026\u2026"
+    text: "\u3046\u301C\u3093\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C"
 --- !u!114 &-2672870596988480819
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 5.85
+  m_Time: 5.05
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -757,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 17.51666666666668
+  m_Time: 14.933333333333353
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -862,6 +840,7 @@ MonoBehaviour:
     - {fileID: 653245425826714677}
     - {fileID: -8559798274797959785}
     - {fileID: -1524986578584648625}
+    - {fileID: 5497127501690622556}
 --- !u!114 &653245425826714677
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 1.9166662999999995
+  m_Time: 1.1166662999999994
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -900,10 +879,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 8.75
+    m_Start: 7
     m_ClipIn: 0
     m_Asset: {fileID: 7800001081803655450}
-    m_Duration: 1.6666666666666667
+    m_Duration: 0.8666666666666678
     m_TimeScale: 1
     m_ParentTrack: {fileID: 847230415403591553}
     m_EaseInDuration: 0
@@ -933,7 +912,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: TransformTweenClip
   - m_Version: 1
-    m_Start: 11.916666300000003
+    m_Start: 9.33333296666667
     m_ClipIn: 0
     m_Asset: {fileID: 3028444533631582444}
     m_Duration: 3.0000003666666686
@@ -969,7 +948,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -8223845024875870034}
-    m_Duration: 1.6666666666666667
+    m_Duration: 0.8333333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 847230415403591553}
     m_EaseInDuration: 0
@@ -1109,7 +1088,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3093\u301C\u3001\u307E\u3060\u5BDD\u307C\u3051\u3066\u308B\u306E\u304B\u306A\uFF1F"
+    text: "\u968E\u6BB5\u964D\u308A\u305F\u306F\u305A\u306A\u306E\u306B\u2026"
 --- !u!114 &3713010038978869887
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1122,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 16.633333333333347
+  m_Time: 14.050000000000026
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -1154,10 +1133,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 14.916666666666679
+  m_Time: 12.33333333333335
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
+--- !u!114 &5110781416255752113
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d683f551d33a84db12bb6fa65573f9, type: 3}
+  m_Name: TextSwitcherClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    fontSize: 75
+    text: "\u3082\u3057\u304B\u3057\u3066\u3001\u304A\u5316\u3051\u306E\u3057\u308F\u3056\u2026\uFF01\uFF1F"
 --- !u!114 &5462707872852392767
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1180,6 +1175,22 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &5497127501690622556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 5.9
+  m_Retroactive: 1
+  m_EmitOnce: 1
+  m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
 --- !u!114 &5801307416988396638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1214,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 10.38333333333333
+  m_Time: 7.833333333333329
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -1252,7 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 17.08333333333335
+  m_Time: 14.500000000000021
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -1305,7 +1316,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3093\u301C\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C\u2026\u2026"
+    text: "\u3042\u308C\uFF1F"
 --- !u!114 &7800001081803655450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1390,10 +1401,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 8.75
-    m_ClipIn: 0.9666670333333331
+    m_Start: 7
+    m_ClipIn: 1.766667033333332
     m_Asset: {fileID: 1543454187772652133}
-    m_Duration: 1.6333333333333333
+    m_Duration: 0.8333333333333344
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8191273476335257131}
     m_EaseInDuration: 0
@@ -1419,11 +1430,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 1.033333333333335
+    m_PostExtrapolationTime: 1
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_MoveF
   - m_Version: 1
-    m_Start: 15.399998899999996
+    m_Start: 12.816665566666675
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: 6047571433131796567}
     m_Duration: 2.2833344333333425
@@ -1456,7 +1467,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleR
   - m_Version: 1
-    m_Start: 14.94999926666667
+    m_Start: 12.366665933333348
     m_ClipIn: 1.316667033333333
     m_Asset: {fileID: -893726625608301378}
     m_Duration: 0.4499996333333274
@@ -1489,7 +1500,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleR
   - m_Version: 1
-    m_Start: 11.416666666666668
+    m_Start: 8.833333333333334
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: 3482760569398501890}
     m_Duration: 0.4999996333333314
@@ -1522,7 +1533,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleR
   - m_Version: 1
-    m_Start: 11.916666300000003
+    m_Start: 9.33333296666667
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: -105289537146743386}
     m_Duration: 3.0333329666666664
@@ -1558,12 +1569,12 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: 7362121233883409189}
-    m_Duration: 1.6333333333333333
+    m_Duration: 0.8333333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8191273476335257131}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.7999996333333277
+    m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -1606,7 +1617,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_MoveF
   - m_Version: 1
-    m_Start: 1.6333333333333333
+    m_Start: 0.8333333333333334
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: -2743259104700967686}
     m_Duration: 1.0333329666666664
@@ -1635,11 +1646,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.6666662999999939
+    m_PostExtrapolationTime: 0.6666662999999948
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleF
   - m_Version: 1
-    m_Start: 3.3333325999999937
+    m_Start: 2.5333325999999947
     m_ClipIn: 2.5166666666666666
     m_Asset: {fileID: 8746162157366196723}
     m_Duration: 0.549999999999994
@@ -1648,7 +1659,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.01666666666666039
+    m_BlendOutDuration: 0.016666666666660834
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -1672,7 +1683,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleL
   - m_Version: 1
-    m_Start: 3.8666659333333273
+    m_Start: 3.066665933333328
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: 5801307416988396638}
     m_Duration: 0.7999996333333272
@@ -1680,7 +1691,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: 8191273476335257131}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.01666666666666039
+    m_BlendInDuration: 0.016666666666660834
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -1705,10 +1716,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleR
   - m_Version: 1
-    m_Start: 4.666665566666655
+    m_Start: 3.8666655666666556
     m_ClipIn: 0.9666670333333331
     m_Asset: {fileID: 5462707872852392767}
-    m_Duration: 1.766666299999991
+    m_Duration: 2.3333329666666556
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8191273476335257131}
     m_EaseInDuration: 0
@@ -1734,58 +1745,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 2.316668133333354
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Runner_IdleF
-  - m_Version: 1
-    m_Start: 0
-    m_ClipIn: 0.9666670333333331
-    m_Asset: {fileID: -6536190477370138190}
-    m_Duration: 0.7999996333333277
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 8191273476335257131}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: 0.7999996333333277
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 1
-    m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0
+    m_PostExtrapolationTime: 0.8000014666666893
     m_PreExtrapolationTime: 0
     m_DisplayName: Runner_IdleF
   m_Markers:
@@ -1820,7 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 15.70000000000001
+  m_Time: 13.116666666666685
   m_Retroactive: 1
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: dbc6a810c1ba6d84689bc218dc63c504, type: 2}
@@ -1839,7 +1799,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 75
-    text: "\u3093\u301C\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C\u2026\u2026"
+    text: "\u3053\u3053\u30013\u968E\u3060\u2026\u2026"
 --- !u!114 &8668621946855279726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1900,7 +1860,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 9.749999999999996
+    m_Start: 7.199999999999995
     m_ClipIn: 0
     m_Asset: {fileID: -2731941481050784344}
     m_Duration: 0.75
@@ -1931,9 +1891,9 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "\u3093\u301C\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C"
+    m_DisplayName: "\u3046\u301C\u3093\u2026\u4F55\u304B\u3044\u3044\u30A2\u30A4\u30C6\u30E0\u306A\u3044\u304B\u306A\u301C"
   - m_Version: 1
-    m_Start: 16.33333333333335
+    m_Start: 13.75000000000003
     m_ClipIn: 0
     m_Asset: {fileID: -8612813569093052689}
     m_Duration: 0.44999963333332715
@@ -1966,7 +1926,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u5148\u751F\u306B\u7206\u7AF9\u3092\u6CA1\u53CE\u3055\u308C\u305F\u3063\u3066\u30012\u7D44\u306E\u7537\u5B50\u304C\u8A00\u3063\u3066\u305F\u3063\u3051"
   - m_Version: 1
-    m_Start: 16.783332966666677
+    m_Start: 14.199999633333357
     m_ClipIn: 0
     m_Asset: {fileID: -6203996105049453519}
     m_Duration: 0.44999963333332715
@@ -1999,7 +1959,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u3042\u308C\u3063\u3066\u307E\u3060\u6B8B\u3063\u3066\u308B\u306E\u304B\u306A\uFF1F"
   - m_Version: 1
-    m_Start: 17.249999266666663
+    m_Start: 14.666665933333336
     m_ClipIn: 0
     m_Asset: {fileID: -6314815999337998984}
     m_Duration: 0.4500007333333458
@@ -2032,7 +1992,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u3068\u308A\u3042\u3048\u305A\u30013-2\u306E\u6559\u5BA4\u3078\u884C\u3063\u3066\u307F\u3088\u3046\uFF01"
   - m_Version: 1
-    m_Start: 12.416666666666668
+    m_Start: 9.833333333333336
     m_ClipIn: 0
     m_Asset: {fileID: 8668621946855279726}
     m_Duration: 2.566666666666667
@@ -2065,7 +2025,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u7A93\u304B\u3089\u51FA\u308B\u305F\u3081\u306E\u30CF\u30B7\u30B4\u3068\u304B\u3001\u5316\u3051\u7269\u3092\u3084\u3063\u3064\u3051\u308B\u305F\u3081\u306E\u7206\u5F3E\u3068\u304B\u2026\u2026"
   - m_Version: 1
-    m_Start: 15.400000366666681
+    m_Start: 12.816667033333356
     m_ClipIn: 0
     m_Asset: {fileID: 4088149592833139553}
     m_Duration: 0.44999963333332715
@@ -2098,7 +2058,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u3042\u3063\uFF01\u305D\u3046\u3044\u3048\u3070\u2026\u2026"
   - m_Version: 1
-    m_Start: 1.6666666666666667
+    m_Start: 0.8666666666666668
     m_ClipIn: 0
     m_Asset: {fileID: 7403871669546437136}
     m_Duration: 0.75
@@ -2131,7 +2091,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u3042\u308C\uFF1F"
   - m_Version: 1
-    m_Start: 4.666665566666655
+    m_Start: 3.8666655666666556
     m_ClipIn: 0
     m_Asset: {fileID: 8657508217475761160}
     m_Duration: 0.75
@@ -2140,7 +2100,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: -1
+    m_BlendOutDuration: 0
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -2164,10 +2124,43 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\u3053\u3053\u30013\u968E\u3060\u2026\u2026"
   - m_Version: 1
-    m_Start: 5.666666666666667
+    m_Start: 4.616665566666655
     m_ClipIn: 0
     m_Asset: {fileID: 3581440588374067057}
-    m_Duration: 0.75
+    m_Duration: 0.7499999999999991
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 9019346782275183222}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: "\u968E\u6BB5\u964D\u308A\u305F\u306F\u305A\u306A\u306E\u306B\u2026"
+  - m_Version: 1
+    m_Start: 5.616666666666666
+    m_ClipIn: 0
+    m_Asset: {fileID: 5110781416255752113}
+    m_Duration: 0.7499999999999991
     m_TimeScale: 1
     m_ParentTrack: {fileID: 9019346782275183222}
     m_EaseInDuration: 0
@@ -2195,7 +2188,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "\u3093\u301C\u3001\u307E\u3060\u5BDD\u307C\u3051\u3066\u308B\u306E\u304B\u306A\uFF1F"
+    m_DisplayName: "\u3082\u3057\u304B\u3057\u3066\u3001\u304A\u5316\u3051\u306E\u3057\u308F\u3056\u2026\uFF01\uFF1F"
   m_Markers:
     m_Objects: []
 --- !u!114 &9044038813685490584
