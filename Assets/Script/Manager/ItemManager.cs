@@ -9,6 +9,9 @@ public class ItemManager : MonoBehaviour
     //アイテムのデータベース
     [SerializeField] private ItemDataBase itemDataBase;
 
+    //情報のデータベース
+    [SerializeField] private InfomationDataBase infomationDataBase;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -57,6 +60,20 @@ public class ItemManager : MonoBehaviour
             }
         }
         return itemInfoText;
+    }
+
+    public string SearchInfoText_Infomation(string infoName)
+    {
+        string infomationInfoText = itemDataBase.itemList[0].itemInfo;
+        for(int i = 0; i < itemDataBase.itemList.Count; i++)
+        {
+            if(infoName == infomationDataBase.infomationList[i].infoName)
+            {
+                infomationInfoText = infomationDataBase.infomationList[i].infoInfo;
+                break;
+            }
+        }
+        return infomationInfoText;
     }
 
     //アイテムの説明からアイテムの種類を返す（カーソルでアイテムの名前を取得してないっぽいので新しく作るのごちゃごちゃしそうなので）
@@ -119,6 +136,25 @@ public class ItemManager : MonoBehaviour
         return itemID;
     }
 
+    public InfomationData PickUpInfomation(int infoID)
+    {
+        InfomationData pickUPinfo = infomationDataBase.infomationList[0];
+        for(int i = 0; i < infomationDataBase.infomationList.Count; i++)
+        {
+            if(infoID == infomationDataBase.infomationList[i].infoID)
+            {
+                pickUPinfo = infomationDataBase.infomationList[i];
+                
+                //アイテムを入手済みにする
+                infomationDataBase.infomationList[i].haveStatus = InfomationData.Status.HAVE;
+                break;
+            }
+        }
+        // //アイテムを入手済みにする
+        // itemDataBase.itemList[itemID].haveStatus = ItemData.Status.HAVE;
+        return pickUPinfo;
+    }
+
 
     //所持状態のリセット(デモ版用)
     private void ReSetItemStatus()
@@ -128,6 +164,14 @@ public class ItemManager : MonoBehaviour
             if(itemDataBase.itemList[i].haveStatus != ItemData.Status.NOTHAVE)
             {
                 itemDataBase.itemList[i].haveStatus = ItemData.Status.NOTHAVE;
+            }
+        }
+
+        for(int i = 0; i < infomationDataBase.infomationList.Count; i++)
+        {
+            if(infomationDataBase.infomationList[i].haveStatus != InfomationData.Status.NOTHAVE)
+            {
+                infomationDataBase.infomationList[i].haveStatus = InfomationData.Status.NOTHAVE;
             }
         }
     }

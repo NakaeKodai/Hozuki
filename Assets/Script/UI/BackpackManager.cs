@@ -11,9 +11,11 @@ public class BackpackManager : MonoBehaviour
     public UIManager  uiManager;
     public ItemManager itemManager;
     public GameObject itemPrefab;
+    public GameObject infoPrefab;
     public GameObject nothingText;
 
     public ItemDataBase itemDataBase;
+    public InfomationDataBase infomationDataBase;
 
     //持ち物欄を見ているか、情報欄を見ているか
     private bool isItemView = true;
@@ -274,20 +276,20 @@ public class BackpackManager : MonoBehaviour
         // if(content_Item.childCount > 5) contentMoveControl ++;
     }
 
-    public void AddBackpack_Infomation(ItemData pickUPitem)
+    public void AddBackpack_Infomation(InfomationData pickUPinfo)
     {
         //Prefabを作成し、情報欄に追加
-        GameObject instance = Instantiate(itemPrefab, content_Info);
+        GameObject instance = Instantiate(infoPrefab, content_Info);
 
         //追加した情報のimageをセットする
         GameObject childObject = instance.transform.GetChild(0).gameObject;//imageを取る
-        Image itemImage = childObject.GetComponent<Image>();
-        itemImage.sprite = pickUPitem.itemImage;
+        Image infoImage = childObject.GetComponent<Image>();
+        infoImage.sprite = pickUPinfo.infoImage;
 
         //追加した情報のTextをセットする
         childObject = instance.transform.GetChild(1).gameObject;//TMPを取る
-        TextMeshProUGUI itemText = childObject.GetComponent<TextMeshProUGUI>();
-        itemText.text = pickUPitem.itemName;
+        TextMeshProUGUI infoText = childObject.GetComponent<TextMeshProUGUI>();
+        infoText.text = pickUPinfo.infoName;
     }
 
     //アイテムのカーソル移動
@@ -379,8 +381,8 @@ public class BackpackManager : MonoBehaviour
 
             //InfoにText
             nowCursorImage_Info = nowCursor_Info.transform.GetChild(1).gameObject;
-            TextMeshProUGUI itemText = nowCursorImage_Info.GetComponent<TextMeshProUGUI>();
-            itemTextInfo_Info.text = itemManager.SearchInfoText(itemText.text);
+            TextMeshProUGUI infoText = nowCursorImage_Info.GetComponent<TextMeshProUGUI>();
+            itemTextInfo_Info.text = itemManager.SearchInfoText_Infomation(infoText.text);
 
             //カーソル表示
             nowCursorImage_Info = nowCursor_Info.transform.GetChild(2).gameObject;

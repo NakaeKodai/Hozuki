@@ -13,6 +13,7 @@ public class TakeManager : MonoBehaviour
     [SerializeField] private Image itemImage;
 
     private ItemData pickUPitem;
+    private InfomationData pickUPinfo;
     // private List<string> talkTopic = new List<string>();
     // private byte talkPage = 0;
     // private byte beforeTalkPage = 1;
@@ -53,6 +54,32 @@ public class TakeManager : MonoBehaviour
 
         //アイテムの追加
         backpackManager.AddBackpack_Item(pickUPitem);
+        // this.talkTopic = talkTopic;
+        // this.calledPlayer = calledPlayer;
+        // if(!calledPlayer) uiManager.isMenuWindow = false;
+    }
+
+    //情報入手時の処理
+    public void TakeInfomation(InfomationData pickUPinfo)
+    {
+        // 入手時の音
+        SoundManager.instance.PlaySE(getSE);
+
+        //テキスト内容のセット
+        this.pickUPinfo = pickUPinfo;
+        GameManager.instance.isOtherMenu = true;
+        isInfoText = false;
+        talkText.text = pickUPinfo.infoName + "を入手しました";
+        itemImage.sprite = pickUPinfo.infoImage;
+        GameManager.instance.isOpenMenu = true;
+
+        //テキストの表示と制御の開始
+        gameObject.SetActive(true);
+        animator.SetTrigger("NewText");
+        talkEnd = false;
+
+        //アイテムの追加
+        backpackManager.AddBackpack_Infomation(pickUPinfo);
         // this.talkTopic = talkTopic;
         // this.calledPlayer = calledPlayer;
         // if(!calledPlayer) uiManager.isMenuWindow = false;
