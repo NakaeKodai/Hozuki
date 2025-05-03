@@ -77,3 +77,11 @@ MonoBehaviour:
     itemInfo: "3-1\u306E\u30AB\u30AE"
     showImage: {fileID: 0}
     getItemName: 
+  - itemID: 50
+    itemName: "\u30B5\u30C3\u30AB\u30FC\u30DC\u30FC\u30EB"
+    itemImage: {fileID: 21300000, guid: eb0a2a14f92f3de4581c0362b3c3cc40, type: 3}
+    haveStatus: 0
+    useType: 0
+    itemInfo: "\u307F\u3093\u306A\u3067\u904A\u3093\u3060\u601D\u3044\u51FA\u306E\u30B5\u30C3\u30AB\u30FC\u30DC\u30FC\u30EB"
+    showImage: {fileID: 0}
+    getItemName: 
