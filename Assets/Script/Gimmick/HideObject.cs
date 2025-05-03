@@ -29,6 +29,15 @@ public class HideObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(canHide && GameManager.instance.isHide)
+        {
+            if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
+            {
+                GameManager.instance.isHide = false;
+                //StartCoroutine(EndHideTimeline(150));
+            }
+        }
+
         if(canHide && !GameManager.instance.isOtherMenu)
         {
             //操作説明
@@ -57,14 +66,16 @@ public class HideObject : MonoBehaviour
                 }
             }
         }
-        else if(!canHide && isHide)
-        {
-            if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
-            {
-                GameManager.instance.isHide = false;
-                //StartCoroutine(EndHideTimeline(150));
-            }
-        }
+        
+        
+        // if(canHide && GameManager.instance.isHide)
+        // {
+        //     if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
+        //     {
+        //         GameManager.instance.isHide = false;
+        //         //StartCoroutine(EndHideTimeline(150));
+        //     }
+        // }
         
     }
 

@@ -13,6 +13,9 @@ public class ConditionalReadObject : MonoBehaviour
     [SerializeField] private TextMeshProUGUI operationText;
 
     public GameObject deleteObject;
+    public GameObject activeObject;
+    public GameObject activeObject2;
+    public GameObject activeObject3;
 
     public string breakSE;
 
@@ -86,8 +89,11 @@ public class ConditionalReadObject : MonoBehaviour
                 if(GameManager.instance.playerInputAction.Player.ActionANDDecision.triggered)
                 {
                     SoundManager.instance.PlaySE(breakSE);
-                    gameObject.SetActive(false); //デモ版のため、1つだけにする。ほんとはクリア用のスクリプトをアタッチして、それをやるのがよさそう
+                    activeObject.SetActive(true);
                     deleteObject.SetActive(false);
+                    activeObject2.SetActive(true);
+                    activeObject3.SetActive(true);
+                    gameObject.SetActive(false); //デモ版のため、1つだけにする。ほんとはクリア用のスクリプトをアタッチして、それをやるのがよさそう
                 }
             }
         }

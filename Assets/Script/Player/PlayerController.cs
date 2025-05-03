@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Rigidbody2D を取得
         lastPlayerPosition = rb.position;
+
+        ItemManager.instance.ReSetItemStatus(); //デモ版のみ
     }
 
     private void Awake()

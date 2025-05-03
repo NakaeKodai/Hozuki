@@ -107,7 +107,7 @@ public class Teleport : MonoBehaviour
     private IEnumerator WaitAndTeleport(Collider2D other)
     {    
         //少し待った後に敵を瞬間移動させる
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         NavMeshAgent2D agent = other.gameObject.GetComponent<NavMeshAgent2D>();
         if (agent != null)
         {

@@ -157,7 +157,7 @@ public class ItemManager : MonoBehaviour
 
 
     //所持状態のリセット(デモ版用)
-    private void ReSetItemStatus()
+    public void ReSetItemStatus()
     {
         for(int i = 0; i < itemDataBase.itemList.Count; i++)
         {
