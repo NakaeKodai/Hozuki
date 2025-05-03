@@ -63,7 +63,7 @@ MonoBehaviour:
     getItemName: 
   - itemID: 5
     itemName: "\u30E9\u30A4\u30BF\u30FC"
-    itemImage: {fileID: -2413806693520163455, guid: 3413bc1f6b6bb9f478019c8e63033f3f, type: 3}
+    itemImage: {fileID: 21300000, guid: 11bc8e0a0bdbc4c2f939e03428c5a8f7, type: 3}
     haveStatus: 0
     useType: 0
     itemInfo: 
